@@ -1,3 +1,22 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$lightBlue:#1b7fb7;
+$darkBlue:#00477d;
+$yellowManta:#ffb60f;
+$grayManta:#cccccc;
+
+body {
+	background-color:$darkBlue;
+	color:lighten($darkBlue, 10%);
+}
+
+.jumbotron {
+	background-color:$yellowManta;
+	height:400px;
+}
+
+section.idealist {
+	background-color:$grayManta;
+}
