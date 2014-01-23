@@ -1,22 +1,27 @@
-<nav class="navbar navbar-default navbar-top" role='navigation'>
+<header class='navbar navbar-inverse navbar-fixed-top' role='banner'>
   <div class='container'>
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Our Manta</a>
+    <nav role='navigation'>
+        <div class='row'>
+    <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header col-md-2">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              </button>
+              <%= link_to image_tag('manta-logo.png', :height => '30px'), root_url, :class=>'navbar-brand' -%>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#"><h4>Submit<br/>Your Idea</h4></a></li>
+              <li class="active"><a href="#"><h4>List<br/>All Ideas</h4></a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
   </div>
-   <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#"><h4>Submit</h4><small>Your Idea</small></a></li>
-      <li class="active"><a href="#"><h4>List</h4><small>All Idea</small></a></li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-  </div>
-</nav>
+</header>
+
 

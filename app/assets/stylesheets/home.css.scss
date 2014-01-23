@@ -6,17 +6,23 @@ $lightBlue:#1b7fb7;
 $darkBlue:#00477d;
 $yellowManta:#ffb60f;
 $grayManta:#cccccc;
+$blueManta:#004F72;
 
 body {
+	@extend body;
 	background-color:$darkBlue;
 	color:lighten($darkBlue, 10%);
 }
 
 .jumbotron {
 	background-color:$yellowManta;
-	height:400px;
+	margin-top:108px;
+	padding-top:4em;
+	padding-bottom:4em;
 }
+
 
 section.idealist {
 	background-color:$grayManta;
+	padding:1em;
 }
