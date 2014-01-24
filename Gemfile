@@ -36,16 +36,19 @@ group :test do
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'thin'
 end
 
-#for heroku
-gem 'rails_12factor'
+group :development do
+  gem 'thin'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
-gem 'unicorn', group: :production
+#gem 'unicorn', group: :production
+
 
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
