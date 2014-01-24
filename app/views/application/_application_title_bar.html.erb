@@ -15,8 +15,8 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#"><h3>Submit<br/><small>Your Idea</small></h3></a></li>
-              <li class="active"><a href="#"><h3>List<br/><small>All Ideas</small></h3></a></li>
+              <li class="active"><%=link_to raw("<h3>Submit<br/><small>Your Idea</small></h3>"), new_idea_path %></li>
+              <li class="active"><%=link_to raw("<h3>List<br/><small>All Ideas</small></h3>"), ideas_path %></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>

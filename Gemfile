@@ -18,6 +18,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# for user logon/off
+gem 'devise'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -31,6 +34,9 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+# simple-form makes things easy!
+gem 'simple_form'
 
 group :test do
   gem 'cucumber-rails', :require => false

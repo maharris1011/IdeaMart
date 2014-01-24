@@ -12,3 +12,9 @@
  *= require bootstrap-manta
  *= require_tree .
  */
+
+ section.main-content {
+ 	margin-top:108px;
+ 	padding-bottom:2em;
+ }
+

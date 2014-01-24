@@ -11,14 +11,18 @@ $blueManta:#004F72;
 body {
 	@extend body;
 	background-color:$darkBlue;
-	color:lighten($darkBlue, 10%);
 }
 
 .jumbotron {
 	background-color:$yellowManta;
-	margin-top:108px;
-	padding-top:4em;
-	padding-bottom:4em;
+	color:lighten($darkBlue, 10%);
+	padding-top:3em;
+	padding-bottom:3em;
+}
+
+.notifications {
+	margin-top:95px;
+	background-color:$darkBlue;
 }
 
 .navbar-right span {
@@ -28,4 +32,20 @@ body {
 section.idealist {
 	background-color:$grayManta;
 	padding:1em;
+}
+
+.idea-card {
+	background-color:$blueManta;
+	box-shadow: 10px 10px 5px #888888;
+	border-radius: 5px;
+	padding:.5em;
+	color:white;
+}
+
+section.light-background {
+	background-color:$lightBlue;
+}
+
+section.light-background {
+	background-color:$darkBlue;
 }

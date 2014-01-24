@@ -17,6 +17,17 @@
 <body>
 	<%= render :partial => 'application_title_bar'%>
 
+	<section class='notifications'>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-md-12'>
+					<p class="notice"><%= notice %></p>
+					<p class="alert"><%= alert %></p>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<%= yield %>
 
 	<%= render :partial => 'application_footer' %>

@@ -1,29 +1,52 @@
-<div class='jumbotron content'>
+<div class='jumbotron'>
 	<div class='container'>
 		<h1>All our Ideas.  All the time.</h1>
 		<h2>Want to learn how it works?</h2>
 		<a href='#' class='btn btn-primary btn-lg'>Learn More</a>
 	</div>
 </div>
+
+<section class='light-background'>
 <section class='idealist'>
 	<div class='container'>
 		<div class="row">
 			<h3>Popular Ideas</h3>
+			<% (0..2).each do  %>
 			<div class="col-sm-6 col-md-4">
-			  <a href="#" class="thumbnail">
-			    <img data-src="holder.js/100%x180" alt="...">
-			  </a>
+				<div class='idea-card'>
+				<div class='row'>
+					<div class='col-md-12'>
+						<img data-src="holder.js/100%x80" alt="..." class='img-responsive'>
+					</div>
+					<div class='col-md-12'>
+						<h4>Manta Local</h4>
+						<h5>By: Ryan Mapes</h5>
+						<p>lorem ipsum</p>
+					</div>
+					<div class='col-md-12'>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    <span class="sr-only">40% Complete (success)</span>
+						  </div>
+						</div>
+					</div>
+					<div class='col-md-4'>
+						<strong>50%</strong><br/>
+						<p>funded</p>
+					</div>
+					<div class='col-md-4'>
+						<strong>$2543</strong><br/>
+						<p>pledged</p>
+					</div>
+					<div class='col-md-4'>
+						<strong>12</strong><br/>
+						<p>days to go</p>
+					</div>
+				</div>
+				</div>
 			</div>
-			<div class="col-sm-6 col-md-4">
-			  <a href="#" class="thumbnail">
-			    <img data-src="holder.js/100%x180" alt="...">
-			  </a>
-			</div>
-			<div class="col-sm-6 col-md-4">
-			  <a href="#" class="thumbnail">
-			    <img data-src="holder.js/100%x180" alt="...">
-			  </a>
-			</div>
+			<% end %>
 		</div>
 	</div>
+</section>
 </section>

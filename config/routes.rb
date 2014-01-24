@@ -1,4 +1,7 @@
 OurMantaIdeas::Application.routes.draw do
+  devise_for :users
+  resources :ideas
+
   get "home/index"
 
 # route the root of the site to the list of all meetings
