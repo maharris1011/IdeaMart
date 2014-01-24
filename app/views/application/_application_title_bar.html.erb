@@ -16,7 +16,14 @@
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
               <li class="active"><%=link_to raw("<h3>Submit<br/><small>Your Idea</small></h3>"), new_idea_path %></li>
-              <li class="active"><%=link_to raw("<h3>List<br/><small>All Ideas</small></h3>"), ideas_path %></li>
+              <li ><%=link_to raw("<h3>List<br/><small>All Ideas</small></h3>"), ideas_path %></li>
+            </ul>
+            <ul class='nav navbar-nav navbar-right'>
+            <% if user_signed_in? %>
+              <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class=>'btn btn-success' %></li>
+              <% else %>
+              <li><%= link_to "Sign In", new_user_session_path, :class=>'btn btn-success' %></li>
+            <% end %>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>

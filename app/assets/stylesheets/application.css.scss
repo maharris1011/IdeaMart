@@ -13,8 +13,16 @@
  *= require_tree .
  */
 
+@import 'colors';
+
  section.main-content {
  	margin-top:108px;
  	padding-bottom:2em;
  }
+
+.notifications {
+	margin-top:95px;
+	background-color:$darkBlue;
+ 	text-color:white;
+}
 

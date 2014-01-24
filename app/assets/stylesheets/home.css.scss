@@ -2,11 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$lightBlue:#1b7fb7;
-$darkBlue:#00477d;
-$yellowManta:#ffb60f;
-$grayManta:#cccccc;
-$blueManta:#004F72;
+@import 'colors';
 
 body {
 	@extend body;
@@ -20,10 +16,6 @@ body {
 	padding-bottom:3em;
 }
 
-.notifications {
-	margin-top:95px;
-	background-color:$darkBlue;
-}
 
 .navbar-right span {
 	color:white;
