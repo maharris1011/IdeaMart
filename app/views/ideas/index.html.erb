@@ -7,7 +7,7 @@
 <table class='table table-responsive'>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Title</th>
       <th>Sponsor</th>
       <th>Description</th>
       <th></th>
@@ -19,8 +19,8 @@
   <tbody>
     <% @ideas.each do |idea| %>
       <tr>
-        <td><%= idea.name %></td>
-        <td><%= idea.sponsor %></td>
+        <td><%= idea.title %></td>
+        <td><%= idea.user.email %></td>
         <td><%= idea.description %></td>
         <td><%= link_to 'Show', idea %></td>
         <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
