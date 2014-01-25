@@ -7,9 +7,8 @@
 <table class='table table-responsive'>
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Concept</th>
       <th>Sponsor</th>
-      <th>Description</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,9 +18,8 @@
   <tbody>
     <% @ideas.each do |idea| %>
       <tr>
-        <td><%= idea.title %></td>
+        <td><%= idea.high_level_concept %></td>
         <td><%= idea.user.email %></td>
-        <td><%= idea.description %></td>
         <td><%= link_to 'Show', idea %></td>
         <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
         <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>

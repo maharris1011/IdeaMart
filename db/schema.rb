@@ -11,17 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125032201) do
+ActiveRecord::Schema.define(version: 20140125044646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ideas", force: true do |t|
-    t.string   "title"
-    t.text     "description"
+    t.text     "solution"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.text     "problem"
+    t.text     "unique_value_prop"
+    t.text     "unfair_advantage"
+    t.text     "early_adopters"
+    t.text     "existing_alternatives"
+    t.text     "key_metrics"
+    t.string   "high_level_concept"
+    t.text     "channels"
+    t.text     "cost_structure"
+    t.text     "revenue_streams"
+    t.text     "customer_segments"
   end
 
   create_table "users", force: true do |t|

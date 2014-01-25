@@ -1,26 +1,47 @@
 <section class='main-content'>
-<div class='container'>
-<div class='row'>
-<div class='col-md-12'>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-md-12'>
+				<h2><%= @idea.high_level_concept %></h2>
+				<p><small><%= @idea.user.email %></small></p>
+				<div class='row'>
+					<div class='col-md-3'>
+						<h4>Customer Segments</h4>
+						<%= @idea.customer_segments %>
+					</div>
+					<div class='col-md-3'>
+						<h4>Problem</h4>
+						<%= @idea.problem %>
+					</div>
+					<div class='col-md-3'>
+						<h4>Solution</h4>
+						<%= @idea.solution %>
+					</div>
+					<div class='col-md-3'>
+						<h4>Value Prop</h4>
+						<%= @idea.unique_value_prop %>
+					</div>
+				</div> <!-- row -->
+				<div class='row'>
+					<div class='col-md-4'>
+						<h4>Key Metrics</h4>
+						<%= @idea.key_metrics %>
+					</div>
+					<div class='col-md-4'>
+						<h4>Cost Structure</h4>
+						<%= @idea.cost_structure %>
+					</div>
+					<div class='col-md-4'>
+						<h4>Revenue Streams</h4>
+						<%= @idea.revenue_streams %>
+					</div>
+				</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @idea.title %>
-</p>
-
-<p>
-  <strong>Sponsor:</strong>
-  <%= @idea.user.email %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @idea.description %>
-</p>
-
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>
-</div>
-</div>
-</div>
+				<div class='col-md-12'>
+					<%= link_to 'Edit', edit_idea_path(@idea) %> |
+					<%= link_to 'Back', ideas_path %>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
