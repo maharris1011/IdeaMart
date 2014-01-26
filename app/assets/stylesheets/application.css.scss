@@ -15,14 +15,24 @@
 
 @import 'colors';
 
-section.main-content {
-	padding-top:1em;
-	padding-bottom:2em;
+section.app-content {
+	background-color:white;
+	min-height:400px;
 }
 
-.notifications {
+
+section.notifications {
 	margin-top:95px;
 	background-color:$darkBlue;
- 	text-color:white;
+ 	p {
+ 		color:white;
+ 	}
 }
+
+.dark-blue-background {
+	background-color:$darkBlue;
+	padding-top:1.5em;
+	padding-bottom:1em;
+}
+
 

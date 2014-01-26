@@ -1,37 +1,37 @@
-<section class='main-content'>
 <div class='container'>
-<div class='row'>
-<div class='col-lg-12'>
-<h1>Manta Idea Exchange (IDX)</h1>
+  <div class='row'>
+    <div class='col-md-12'>
+      <h1>Manta Idea Exchange (IDX)</h1>
+          <div class='row'>
+      <ul class='list-unstyled'>
+          <% @ideas.each do |idea| %>
+            <div class='col-md-6 concept-card'>
+                <div class='row'>
+              <li>
+                  <div class='information col-md-9'>
+                    <%= link_to idea.high_level_concept, idea, :class=>'title' %><br/>
+                    <%= mail_to idea.user.email, idea.user.name %>
+                  </div>
+                  <div class='actions col-md-3'>
+                    <%= link_to edit_idea_path(idea), :class=>'btn btn-success' do %>
+                      <i class='glyphicon-edit'></i>
+                    <% end %>
+                    <%= link_to raw('&times;'), idea, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger' %>
+                  </div>
+              </li>
+                </div>
+            </div>
+          <% end %>
+      </ul>
+          </div>
+    </div>
 
-<table class='table table-responsive'>
-  <thead>
-    <tr>
-      <th>Concept</th>
-      <th>Sponsor</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <br/>
+    <div class='col-md-12'>
+      <%= link_to 'New Idea', new_idea_path, :class => 'btn btn-lg btn-success' %>
+    </div>
 
-  <tbody>
-    <% @ideas.each do |idea| %>
-      <tr>
-        <td><%= idea.high_level_concept %></td>
-        <td><%= idea.user.email %></td>
-        <td><%= link_to 'Show', idea %></td>
-        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
-        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <br/>
 
-<br>
-
-<%= link_to 'New Idea', new_idea_path, :class => 'btn btn-lg btn-success' %>
+  </div>
 </div>
-</div>
-</div>
-</section>

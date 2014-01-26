@@ -1,3 +1,4 @@
+<section class='dark-blue-background'>
 <div class='jumbotron'>
 	<div class='container'>
 		<h1>All our Ideas.  All the time.</h1>
@@ -5,13 +6,14 @@
 		<a href='#' class='btn btn-primary btn-lg'>Learn More</a>
 	</div>
 </div>
+</section>
 
 <section class='light-background'>
 <section class='idealist'>
 	<div class='container'>
 		<div class="row">
 			<h3>Popular Ideas</h3>
-			<% (0..2).each do  %>
+			<% @ideas.each do  |i| %>
 			<div class="col-sm-6 col-md-4">
 				<div class='idea-card'>
 				<div class='row'>
@@ -19,9 +21,9 @@
 						<img data-src="holder.js/100%x80" alt="..." class='img-responsive'>
 					</div>
 					<div class='col-md-12'>
-						<h4>Manta Local</h4>
-						<h5>By: Ryan Mapes</h5>
-						<p>lorem ipsum</p>
+						<h4><%= i.high_level_concept%></h4>
+						<h5>By: <%= i.user.name %></h5>
+						<p><%= i.solution %></p>
 					</div>
 					<div class='col-md-12'>
 						<div class="progress">

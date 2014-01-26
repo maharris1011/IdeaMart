@@ -15,3 +15,8 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+// fades in/out messages
+$('#notice').delay(500).fadeIn('normal', function() {
+	$(this).delay(1500).fadeOut();
+});
