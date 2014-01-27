@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index, :edit, :update, :new, :destroy, :create]
+  before_action :authenticate_user!
   # GET /ideas
   # GET /ideas.json
   def index
@@ -10,11 +10,8 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
-    if user_signed_in? then
-      @vote = @idea.votes.where(:user => current_user).first
-    else
-      @vote = nil
-    end
+    @vote = @idea.votes.where(:user => current_user).first
+
     if @vote == nil then
       @vote = Vote.new
       @vote.user = current_user
