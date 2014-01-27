@@ -10,7 +10,11 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
-    @vote = @idea.votes.where(:user => current_user).first
+    if user_signed_in? then
+      @vote = @idea.votes.where(:user => current_user).first
+    else
+      @vote = nil
+    end
     if @vote == nil then
       @vote = Vote.new
       @vote.user = current_user
