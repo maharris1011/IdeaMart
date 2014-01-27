@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	@ideas = Idea.all.order(:created_at)
+  	@ideas = Idea.most_popular.limit(3)
+  	@new_ideas = Idea.newest.limit(3)
   end
 end

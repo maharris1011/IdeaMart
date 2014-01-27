@@ -2,39 +2,36 @@
   <div class='row'>
     <div class='col-md-12'>
       <h1>Manta Idea Exchange (IDX)</h1>
-          <div class='row'>
-      <ul class='list-unstyled'>
-          <% @ideas.each do |idea| %>
-            <div class='col-md-5 concept-card'>
-              <li>
-                <div class='row'>
-                  <div class='information col-md-9'>
-                    <%= link_to idea.high_level_concept, idea, :class=>'title' %><br/>
-                    <%= mail_to idea.user.email, idea.user.name %>
-                  </div>
-                  <div class='actions col-md-3'>
-                    <%= link_to edit_idea_path(idea), :class=>'btn btn-success' do %>
-                      <i class='glyphicon glyphicon-edit'></i>
-                    <% end %>
-                    <%= link_to idea, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger' do %>
-                      <i class='glyphicon glyphicon-remove'></i>
-                    <% end %>
-                  </div>
-                </div>
-              </li>
-            </div>
-            <div class=col-md-1>&nbsp;</div>
-          <% end %>
-      </ul>
-          </div>
     </div>
-
-    <br/>
-    <div class='col-md-12'>
-      <%= link_to 'New Idea', new_idea_path, :class => 'btn btn-lg btn-success' %>
-    </div>
-
-    <br/>
-
   </div>
+  <div class='row'>
+    <% @ideas.each do |idea| %>
+      <div class="col-md-12">
+        <div class='idea-card'>
+          <div class='row'>
+            <div class='col-md-9'>
+              <h3><%= link_to idea.high_level_concept, idea %> -- <%= pluralize(idea.votes.count, 'supporter')%></h3>
+              <h5>By: <%= mail_to idea.user.email, idea.user.name %></h5>
+              <p><%= idea.solution %></p>
+            </div>
+            <div class='actions col-md-3'>
+              <%= link_to edit_idea_path(idea), :class=>'btn btn-success' do %>
+                <i class='glyphicon glyphicon-edit'></i>
+              <% end %>
+              <%= link_to idea, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger' do %>
+                <i class='glyphicon glyphicon-remove'></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <br/>
+  <div class='col-md-12'>
+    <%= link_to 'Add Your Idea!', new_idea_path, :class => 'btn btn-lg btn-success' %>
+  </div>
+
+  <br/>
+
 </div>

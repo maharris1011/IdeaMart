@@ -1,44 +1,60 @@
 	<div class='container'>
 		<div class='row'>
-			<div class='col-md-12'>
+			<div class='col-md-8'>
 				<h2><%= @idea.high_level_concept %></h2>
 				<p><small><%= @idea.user.email %></small></p>
-				<div class='row'>
-					<div class='col-md-3'>
-						<h4>Customer Segments</h4>
-						<%= @idea.customer_segments %>
-					</div>
-					<div class='col-md-3'>
-						<h4>Problem</h4>
-						<%= @idea.problem %>
-					</div>
-					<div class='col-md-3'>
-						<h4>Solution</h4>
-						<%= @idea.solution %>
-					</div>
-					<div class='col-md-3'>
-						<h4>Value Prop</h4>
-						<%= @idea.unique_value_prop %>
-					</div>
-				</div> <!-- row -->
-				<div class='row'>
-					<div class='col-md-4'>
-						<h4>Key Metrics</h4>
-						<%= @idea.key_metrics %>
-					</div>
-					<div class='col-md-4'>
-						<h4>Cost Structure</h4>
-						<%= @idea.cost_structure %>
-					</div>
-					<div class='col-md-4'>
-						<h4>Revenue Streams</h4>
-						<%= @idea.revenue_streams %>
-					</div>
-				</div>
+				<h3>Support: <%= pluralize(@idea.votes.count, 'Manta associate')%></h3>
+			</div>
 
-				<div class='col-md-12'>
-					<%= link_to 'Edit', edit_idea_path(@idea), :class=>'btn btn-success' %>  <%= link_to 'Cancel', ideas_path, :class=>'btn btn-info' %>
+			<div class='col-md-4'>
+				<% if @idea.votes.where(:user=>current_user).first != nil then %>
+					<h4>You support this idea.</h4>
+					<%= link_to 'Remove Vote?', [@idea, @vote], :method => :delete, :class => 'btn btn-danger' %>
+				<% else %>
+					<h4>Show Your Support.</h4>
+					<%= simple_form_for([@idea, @vote], html: {class: 'form-horizontal' }) do |f| %>
+						<%= f.submit 'Vote For It!', :class => 'btn btn-success btn-lg' %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div class='idea-attributes'>
+			<div class='row'>
+				<div class='col-md-3'>
+					<h4>Customer Segments</h4>
+					<%= @idea.customer_segments %>
+				</div>
+				<div class='col-md-3'>
+					<h4>Problem</h4>
+					<%= @idea.problem %>
+				</div>
+				<div class='col-md-3'>
+					<h4>Solution</h4>
+					<%= @idea.solution %>
+				</div>
+				<div class='col-md-3'>
+					<h4>Value Prop</h4>
+					<%= @idea.unique_value_prop %>
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='col-md-4'>
+					<h4>Key Metrics</h4>
+					<%= @idea.key_metrics %>
+				</div>
+				<div class='col-md-4'>
+					<h4>Cost Structure</h4>
+					<%= @idea.cost_structure %>
+				</div>
+				<div class='col-md-4'>
+					<h4>Revenue Streams</h4>
+					<%= @idea.revenue_streams %>
 				</div>
 			</div>
 		</div>
+		<div class='col-md-12'>
+			<%= link_to 'Edit', edit_idea_path(@idea), :class=>'btn btn-success' %>  <%= link_to 'Cancel', ideas_path, :class=>'btn btn-info' %>
+		</div>
+
 	</div>
