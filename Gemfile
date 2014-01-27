@@ -34,8 +34,6 @@ gem 'state_machine'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'rails_12factor'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -58,13 +56,18 @@ end
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
-gem 'unicorn', group: :production
+group :production do
+	gem 'unicorn'
+	gem 'rails_12factor'
+end
 
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
-gem 'capistrano-ext', group: :development
-gem 'capistrano-rvm', group: :development
+group :development do
+	gem 'capistrano'
+	gem 'capistrano-ext'
+	gem 'capistrano-rvm'
+end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
