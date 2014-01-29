@@ -15,15 +15,15 @@ class Idea < ActiveRecord::Base
 			transition :proposed => :approved
 		end
 		event :defer do 
-			transition :proposed => :deferred
+			transition [:approved, :proposed] => :deferred
 		end
 
 		event :decline do 
-			transition [:deferred, :proposed] => :declined
+			transition [:approved, :deferred, :proposed] => :declined
 		end
 
 		event :restart do
-			transition [:deferred, :declined] => :proposed
+			transition [:approved, :deferred, :declined] => :spark
 		end
 		
 		event :start_work do

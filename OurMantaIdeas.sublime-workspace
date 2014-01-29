@@ -3,32 +3,32 @@
 	{
 		"selected_items":
 		[
+			[
+				"state_",
+				"state_transitions"
+			],
+			[
+				"su",
+				"submit"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/views/home/index.html.erb",
+			"file": "app/views/ideas/_state_links.html.erb",
 			"settings":
 			{
-				"buffer_size": 428,
+				"buffer_size": 108,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/controllers/ideas_controller.rb",
+			"settings":
+			{
+				"buffer_size": 2300,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/home/_idealist.html.erb",
-			"settings":
-			{
-				"buffer_size": 2165,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/views/home/_benefits.html.erb",
-			"settings":
-			{
-				"buffer_size": 1379,
-				"line_ending": "Windows"
 			}
 		}
 	],
@@ -59,6 +59,18 @@
 	},
 	"file_history":
 	[
+		"/C/Sites/OurMantaIdeas/app/views/ideas/show.html.erb",
+		"/C/Sites/OurMantaIdeas/app/views/home/index.html.erb",
+		"/C/Sites/OurMantaIdeas/app/views/home/_ideacard.html.erb",
+		"/C/Sites/OurMantaIdeas/app/views/home/_idealist.html.erb",
+		"/C/Sites/OurMantaIdeas/app/controllers/votes_controller.rb",
+		"/C/Sites/OurMantaIdeas/db/migrate/20140129161450_add_up_down_vote_to_votes.rb",
+		"/C/Sites/OurMantaIdeas/app/controllers/home_controller.rb",
+		"/C/Users/mharris/Documents/schedule.json",
+		"/C/Sites/OurMantaIdeas/config/unicorn.rb",
+		"/C/Sites/OurMantaIdeas/Gemfile",
+		"/C/Sites/OurMantaIdeas/app/views/home/_benefits.html.erb",
+		"/C/Sites/OurMantaIdeas/Gemfile.lock",
 		"/C/Sites/OurMantaIdeas/app/views/application/_application_title_bar.html.erb",
 		"/C/Sites/OurMantaIdeas/app/controllers/ideas_controller.rb",
 		"/C/Sites/OurMantaIdeas/app/assets/stylesheets/home.css.scss",
@@ -66,7 +78,6 @@
 		"/C/Sites/OurMantaIdeas/app/assets/stylesheets/application.css",
 		"/C/Sites/OurMantaIdeas/app/assets/stylesheets/bootstrap-theme.css",
 		"/C/Sites/OurMantaIdeas/app/views/devise/sessions/new.html.erb",
-		"/C/Sites/OurMantaIdeas/app/views/home/index.html.erb",
 		"/C/Sites/OurMantaIdeas/app/inputs/collection_check_boxes_input.rb",
 		"/C/Sites/OurMantaIdeas/app/inputs/collection_radio_buttons_input.rb",
 		"/C/Sites/OurMantaIdeas/config/initializers/simple_form.rb",
@@ -77,18 +88,15 @@
 		"/C/Sites/OurMantaIdeas/app/views/devise/unlocks/new.html.erb",
 		"/C/Sites/OurMantaIdeas/app/views/devise/shared/_links.erb",
 		"/C/Sites/OurMantaIdeas/app/views/devise/registrations/edit.html.erb",
-		"/C/Sites/OurMantaIdeas/Gemfile",
 		"/C/Sites/OurMantaIdeas/app/views/layouts/application.html.erb",
 		"/C/Sites/OurMantaIdeas/config/environments/development.rb",
 		"/C/Sites/OurMantaIdeas/app/views/ideas/new.html.erb",
 		"/C/Sites/OurMantaIdeas/app/views/ideas/edit.html.erb",
 		"/C/Sites/OurMantaIdeas/app/views/ideas/index.html.erb",
-		"/C/Sites/OurMantaIdeas/app/views/ideas/show.html.erb",
 		"/C/Sites/OurMantaIdeas/app/assets/stylesheets/bootstrap-manta.css.scss",
 		"/C/Sites/OurMantaIdeas/app/views/application/_application_footer.html.erb",
 		"/C/Sites/OurMantaIdeas/config/deploy.rb",
 		"/C/Sites/OurMantaIdeas/app/views/ideas/_form.html.erb",
-		"/C/Sites/OurMantaIdeas/config/unicorn.rb",
 		"/C/Sites/OurMantaIdeas/app/assets/javascripts/application.js",
 		"/C/Sites/OurMantaIdeas/app/assets/stylesheets/bootstrap.css",
 		"/C/Sites/OurMantaIdeas/app/views/layouts/_application_title_bar.html.erb",
@@ -112,6 +120,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"i.",
+			"launchpad",
 			"manta-logo-sm",
 			"manta-logo",
 			"font-face",
@@ -123,6 +133,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"idea.",
+			"OurMantaIdeas"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -133,94 +145,66 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/home/index.html.erb",
+					"file": "app/views/ideas/_state_links.html.erb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 428,
+						"buffer_size": 108,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								407,
-								407
+								61,
+								61
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/views/home/_idealist.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2165,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								1104
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/views/home/_benefits.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1379,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								928,
-								928
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
+							"auto_name": "",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/controllers/ideas_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2300,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2286,
+								2286
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -264,7 +248,7 @@
 	"project": "OurMantaIdeas.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -277,11 +261,11 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{

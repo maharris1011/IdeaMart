@@ -12,7 +12,7 @@ class VotesController < ApplicationController
 	# POST /ideas
 	# POST /ideas.json
 	def create
-		@vote = Vote.new(:idea => @idea, :user => current_user)
+		@vote = Vote.new(:idea => @idea, :user => current_user, :score => params[:score])
 
 		respond_to do |format|
 		  if @vote.save
@@ -46,7 +46,7 @@ class VotesController < ApplicationController
     end
 
     def vote_params
-    	params.require(:vote).permit(:idea_id)
+    	params.require(:vote).permit(:idea_id, :score)
     end
 
 end
