@@ -4,7 +4,9 @@
 				<h2><%= @idea.high_level_concept %>  <span class='label label-default'><%=@idea.state.humanize%></span></h2>
 				<p><small><%= @idea.user.email %></small></p>
 				<h3>Support: <%= pluralize(@idea.votes.count, 'Manta associate')%></h3>
-				<%= render :partial => 'state_links', :locals => {:idea => @idea} %>
+				<div class='row'>
+					<%= render :partial => 'state_links', :locals => {:idea => @idea} %>
+				</div>
 			</div>
 
 			<div class='col-md-4'>

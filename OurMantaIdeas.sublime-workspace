@@ -19,16 +19,24 @@
 			"file": "app/views/ideas/_state_links.html.erb",
 			"settings":
 			{
-				"buffer_size": 108,
+				"buffer_size": 1638,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/controllers/ideas_controller.rb",
+			"file": "app/views/ideas/index.html.erb",
 			"settings":
 			{
-				"buffer_size": 2300,
+				"buffer_size": 1376,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/home/_ideacard.html.erb",
+			"settings":
+			{
+				"buffer_size": 806,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -59,7 +67,10 @@
 	},
 	"file_history":
 	[
+		"/C/Sites/OurMantaIdeas/app/controllers/ideas_controller.rb",
 		"/C/Sites/OurMantaIdeas/app/views/ideas/show.html.erb",
+		"/C/Sites/OurMantaIdeas/app/models/idea.rb",
+		"/C/Sites/OurMantaIdeas/db/schema.rb",
 		"/C/Sites/OurMantaIdeas/app/views/home/index.html.erb",
 		"/C/Sites/OurMantaIdeas/app/views/home/_ideacard.html.erb",
 		"/C/Sites/OurMantaIdeas/app/views/home/_idealist.html.erb",
@@ -72,7 +83,6 @@
 		"/C/Sites/OurMantaIdeas/app/views/home/_benefits.html.erb",
 		"/C/Sites/OurMantaIdeas/Gemfile.lock",
 		"/C/Sites/OurMantaIdeas/app/views/application/_application_title_bar.html.erb",
-		"/C/Sites/OurMantaIdeas/app/controllers/ideas_controller.rb",
 		"/C/Sites/OurMantaIdeas/app/assets/stylesheets/home.css.scss",
 		"/C/Sites/OurMantaIdeas/app/assets/stylesheets/colors.css.scss",
 		"/C/Sites/OurMantaIdeas/app/assets/stylesheets/application.css",
@@ -120,6 +130,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"col-md-4",
+			"col-md-12",
+			"col-md-4",
 			"i.",
 			"launchpad",
 			"manta-logo-sm",
@@ -133,6 +146,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"col-md-3",
+			"",
+			"col-md-12",
 			"idea.",
 			"OurMantaIdeas"
 		],
@@ -145,7 +161,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -154,15 +170,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 108,
+						"buffer_size": 1638,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								61,
-								61
+								714,
+								714
 							]
 						],
 						"settings":
@@ -174,37 +190,66 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/controllers/ideas_controller.rb",
+					"file": "app/views/ideas/index.html.erb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2300,
+						"buffer_size": 1376,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2286,
-								2286
+								247,
+								247
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 630.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/views/home/_ideacard.html.erb",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 806,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								438,
+								438
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
