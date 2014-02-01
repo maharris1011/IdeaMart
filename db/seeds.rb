@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 new_users = {
-	'Mark Harris' => 'Manta.com',
 	'Anna Harper Hess' => 'Members',
 	'Dmitri Kazanski' => 'Ads',
 	'Eren Alasyali' => 'Ads',
