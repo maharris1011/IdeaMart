@@ -21,7 +21,7 @@ new_users = {
 }
 
 new_users.each do |key, value|
-	u = User.new(name:key, email:"#{value}@manta.com", launchpad:true)
+	u = User.new(name:key, email:"#{value}@manta.com", password:'password', launchpad:true)
 	if u.save
 		puts "user #{key} created"
 	else
