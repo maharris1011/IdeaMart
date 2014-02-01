@@ -13,7 +13,9 @@
 
   <div class='inputs'>
     <%= f.input :high_level_concept %>
-    <%= f.association :user, :priority => @idea.user , :label_method => :email, :label => "Sponsor" %>
+    <%= f.association :user, :priority => @idea.user , :label_method => :name, :label => "Creator" %>
+    <% #f.association :launchpad_sponsor, :priority => @idea.launchpad_sponsor, :label_method => :name, :label => "Sponsor" %>
+    <%= f.association :launchpad_sponsor, collection:User.where(:launchpad => true), :label_method => :name, :value_method => :id, :label => "Sponsor" %>
     <%= f.input :customer_segments %>
     <%= f.input :problem %>
     <%= f.input :solution %>

@@ -1,5 +1,8 @@
 class Idea < ActiveRecord::Base
 	belongs_to :user
+	#belongs_to :launchpad_sponsor
+	belongs_to :launchpad_sponsor, :class_name => 'User'
+
 	has_many :votes
 
 	scope :most_popular, -> {select("ideas.*, count(votes.id) AS votes_count").

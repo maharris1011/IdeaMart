@@ -79,6 +79,6 @@ class IdeasController < ApplicationController
     def idea_params
       params.require(:idea).permit(:id, :title, :user_id, :solution, :problem, :high_level_concept, :unique_value_prop, :unfair_advantage,
                                     :early_adopters, :existing_alternatives, :key_metrics, :channels, :cost_structure, :revenue_streams,
-                                    :customer_segments, :state)
+                                    :customer_segments, :state, :launchpad_sponsor_id)
     end
 end

@@ -2,7 +2,8 @@
 		<div class='row'>
 			<div class='col-md-8'>
 				<h2><%= @idea.high_level_concept %>  <span class='label label-default'><%=@idea.state.humanize%></span></h2>
-				<p><small><%= @idea.user.email %></small></p>
+				<p>Created by: <small><%= mail_to @idea.user.email, @idea.user.name %></small></p>
+				<p>Sponsored by: <small><%= @idea.launchpad_sponsor.name %></small></p>
 				<h3>Support: <%= pluralize(@idea.votes.count, 'Manta associate')%></h3>
 				<%= render :partial => 'state_links', :locals => {:idea => @idea} %>
 			</div>
