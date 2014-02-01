@@ -27,7 +27,7 @@ class Idea < ActiveRecord::Base
 		end
 
 		event :restart do
-			transition [:approved, :deferred, :declined] => :spark
+			transition [:approved, :deferred, :declined, :done] => :spark
 		end
 		
 		event :start_work do
