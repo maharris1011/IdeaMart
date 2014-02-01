@@ -49,6 +49,11 @@ class IdeasController < ApplicationController
   # PATCH/PUT /ideas/1.json
   def update
     respond_to do |format|
+
+      if params[:event]
+        @idea.fire_state_event(params[:event].parameterize.underscore.to_sym)
+      end
+
       if @idea.update(idea_params)
         format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }
         format.json { head :no_content }

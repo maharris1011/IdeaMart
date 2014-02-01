@@ -1,49 +1,13 @@
-<% if idea.can_submit? %>
-	<%= simple_form_for idea, :method => :put do |f| %>
-	  <%= f.hidden_field :state, :value => :proposed %>
-	  <%= f.submit "Propose", :class => 'btn btn-success' %>
-	<% end %>
-<% end %>
-
-<% if idea.can_approve? %>
-	<%= simple_form_for idea, :method => :put do |f| %>
-	  <%= f.hidden_field :state, :value => :approved %>
-	  <%= f.submit "Approve", :class => 'btn btn-success' %>
-	<% end %>
-<% end %>
-
-<% if idea.can_defer? %>
-	<%= simple_form_for idea, :method => :put do |f| %>
-	  <%= f.hidden_field :state, :value => :deferred %>
-	  <%= f.submit "Defer", :class => 'btn btn-primary' %>
-	<% end %>
-<% end %>
-
-<% if idea.can_decline? %>
-	<%= simple_form_for idea, :method => :put do |f| %>
-	  <%= f.hidden_field :state, :value => :declined %>
-	  <%= f.submit "Decline", :class => 'btn btn-danger' %>
-	<% end %>
-<% end %>
-
-<% if idea.can_restart? %>
-	<%= simple_form_for idea, :method => :put do |f| %>
-	  <%= f.hidden_field :state, :value => :spark %>
-	  <%= f.submit "Restart", :class => 'btn btn-info' %>
-	<% end %>
-<% end %>
-
-<% if idea.can_deliver? %>
-	<%= simple_form_for idea, :method => :put do |f| %>
-	  <%= f.hidden_field :state, :value => :delivered %>
-	  <%= f.submit "Deliver", :class => 'btn btn-success' %>
-	<% end %>
-<% end %>
-
-<% if idea.can_start_work? %>
-	<%= simple_form_for idea, :method => :put do |f| %>
-	  <%= f.hidden_field :state, :value => :in_development %>
-	  <%= f.submit "Start Work", :class => 'btn btn-success' %>
-	<% end %>
-<% end %>
+<div class='row'>
+	<div class='col-md-12'>
+	<div class='btn-group btn-group-lg'>
+		<% idea.state_events.each do |e| %>
+		<% # had to do this hack, idea:{solution:idea.solution} to get past the 'strong parameters' bullstuff %>
+			<%= link_to idea_path(idea, idea:{solution:idea.solution}, :event=>e), method: :patch, :class => 'btn btn-success' do %>
+				<%= e.to_s.capitalize %>
+			<% end %>
+		<% end %>
+	</div>
+	</div>
+</div>
 
