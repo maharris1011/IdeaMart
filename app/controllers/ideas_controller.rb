@@ -4,7 +4,11 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    if params[:state]
+      @ideas = Idea.where(:state => params[:state].to_s)
+    else
+      @ideas = Idea.all
+    end
   end
 
   # GET /ideas/1
@@ -52,7 +56,8 @@ class IdeasController < ApplicationController
     respond_to do |format|
 
       if params[:event]
-        @idea.fire_state_event(params[:event].parameterize.underscore.to_sym)
+        @idea.state_event = params[:event].parameterize.underscore.to_sym
+        #@idea.fire_state_event(params[:event].parameterize.underscore.to_sym)
       end
 
       if @idea.update(idea_params)

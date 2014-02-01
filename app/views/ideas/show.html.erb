@@ -3,62 +3,75 @@
 			<div class='col-md-8'>
 				<h2><%= @idea.high_level_concept %>  <span class='label label-default'><%=@idea.state.humanize%></span></h2>
 				<p>Created by: <small><%= mail_to @idea.user.email, @idea.user.name %></small></p>
-				<p>Sponsored by: <small><%= @idea.launchpad_sponsor.name %></small></p>
+				<% if @idea.state != :spark.to_s %>
+					<p>Sponsored by: <small><%= @idea.launchpad_sponsor.name %></small></p>
+				<% end %>
 				<h3>Support: <%= pluralize(@idea.score, 'Point')%></h3>
 				<%= render :partial => 'state_links', :locals => {:idea => @idea} %>
 			</div>
 
 			<div class='col-md-4'>
-				<% if v = @idea.votes.where(:user=>current_user).first  %>
-					<h4>You already voted (<%= '%+d' % v.score %>)</h4>
-					<%= link_to 'Remove Vote?', [@idea, @vote], :method => :delete, :class => 'btn btn-danger btn-lg' %>
-				<% else %>
-					<h4>Show Your Support.</h4>
-					<div class='btn btn-group btn-group-lg'>
-						<%= link_to idea_votes_path(@idea), :method => :post, :class => 'btn btn-success' do %>
-							<i class='glyphicon glyphicon-thumbs-up'></i>
-						<% end %>
-						<%= link_to idea_votes_path(@idea, :score=>-1), :method => :post, :class => 'btn btn-success' do %>
-							<i class='glyphicon glyphicon-thumbs-down'></i>
-						<% end %>
-					</div>
+				<% if @idea.state == :proposed or @idea.state == :spark %>
+					<% if v = @idea.votes.where(:user=>current_user).first  %>
+						<h4>You already voted (<%= '%+d' % v.score %>)</h4>
+						<%= link_to 'Remove Vote?', [@idea, @vote], :method => :delete, :class => 'btn btn-danger btn-lg' %>
+					<% else %>
+						<h4>Show Your Support.</h4>
+						<div class='btn btn-group btn-group-lg'>
+							<%= link_to idea_votes_path(@idea), :method => :post, :class => 'btn btn-success' do %>
+								<i class='glyphicon glyphicon-thumbs-up'></i>
+							<% end %>
+							<%= link_to idea_votes_path(@idea, :score=>-1), :method => :post, :class => 'btn btn-success' do %>
+								<i class='glyphicon glyphicon-thumbs-down'></i>
+							<% end %>
+						</div>
+					<% end %>
 				<% end %>
 			</div>
 		</div>
 		<div class='idea-attributes'>
 			<div class='row'>
 				<div class='col-md-3'>
-					<h4>Customer Segments</h4>
-					<%= @idea.customer_segments %>
+					<%= idea_component_panel('Customer Segments', @idea.customer_segments) %>
 				</div>
 				<div class='col-md-3'>
-					<h4>Problem</h4>
-					<%= @idea.problem %>
+					<%= idea_component_panel('Problem', @idea.problem) %>
 				</div>
 				<div class='col-md-3'>
-					<h4>Solution</h4>
-					<%= @idea.solution %>
+					<%= idea_component_panel('Solution', @idea.solution) %>
 				</div>
 				<div class='col-md-3'>
-					<h4>Value Prop</h4>
-					<%= @idea.unique_value_prop %>
+					<%= idea_component_panel('Value Prop', @idea.unique_value_prop) %>
 				</div>
 			</div>
 
 			<div class='row'>
 				<div class='col-md-4'>
-					<h4>Key Metrics</h4>
-					<%= @idea.key_metrics %>
+					<%= idea_component_panel('Key Metrics', @idea.key_metrics) %>
 				</div>
 				<div class='col-md-4'>
-					<h4>Cost Structure</h4>
-					<%= @idea.cost_structure %>
+					<%= idea_component_panel('Cost Structure', @idea.cost_structure) %>
 				</div>
 				<div class='col-md-4'>
-					<h4>Revenue Streams</h4>
-					<%= @idea.revenue_streams %>
+					<%= idea_component_panel('Revenue Streams', @idea.revenue_streams) %>
 				</div>
 			</div>
+
+			<div class='row'>
+				<div class='col-md-3'>
+					<%= idea_component_panel('Unfair Advantage', @idea.unfair_advantage) %>
+				</div>
+				<div class='col-md-3'>
+					<%= idea_component_panel('Early Adopters', @idea.early_adopters) %>
+				</div>
+				<div class='col-md-3'>
+					<%= idea_component_panel('Existing Alternatives', @idea.existing_alternatives) %>
+				</div>
+				<div class='col-md-3'>
+					<%= idea_component_panel('Channels', @idea.channels) %>
+				</div>
+			</div>
+
 		</div>
 		
 		<% if @idea.user == current_user || current_user.launchpad then %>

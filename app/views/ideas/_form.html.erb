@@ -1,31 +1,69 @@
 <%= simple_form_for(@idea, html: {class: 'form-horizontal' }) do |f| %>
+
   <% if @idea.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
-
-      <ul>
-      <% @idea.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+      <h2><small>See the items in <span style='color:red;'>red</span> and fix them.</small></h2>
     </div>
   <% end %>
 
   <div class='inputs'>
-    <%= f.input :high_level_concept %>
-    <%= f.association :user, :priority => @idea.user , :label_method => :name, :label => "Creator" %>
-    <%= f.association :launchpad_sponsor, collection:User.where(:launchpad => true), :label_method => :name, :value_method => :id, :label => "Sponsor" %>
-    <%= f.input :customer_segments %>
-    <%= f.input :problem %>
-    <%= f.input :solution %>
-    <%= f.input :unique_value_prop %>
-    <%= f.input :key_metrics %>
-    <%= f.input :unfair_advantage %>
-    <%= f.input :early_adopters %>
-    <%= f.input :existing_alternatives %>
-    <%= f.input :channels %>
-    <%= f.input :cost_structure %>
-    <%= f.input :revenue_streams %>
+    <div class='row'>
+      <div class='col-md-12'>
+        <h4><%= f.input :high_level_concept, :placeholder=>'e.g. YouTube for Books' %></h4>
+        <div class='row'>
+          <div class='col-md-6'>
+            <%= f.association :user, :priority => @idea.user , :label_method => :name, :label => "Created By" %>
+          </div>
+          <div class='col-md-6'>
+            <%= f.association :launchpad_sponsor, collection:User.where(:launchpad => true), :label_method => :name, :value_method => :id, :label => "Sponsored By", :hint => 'Who is on board ready to pitch this with you? Sanity check your idea with at least 1 member of Launchpad before you submit.' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='idea-attributes'>
+      <div class='row'>
+        <div class='col-md-3'>
+          <%= f.input :problem, :hint => 'What problem are you trying to solve?', :input_html => { :rows => 10 } %>
+        </div>
+        <div class='col-md-3'> 
+          <%= f.input :customer_segments, :hint => 'For whom are you solving it?', :input_html => { :rows => 10 } %>
+        </div>
+        <div class='col-md-3'>
+          <%= f.input :solution, :hint => 'What is the proposed solution?', :input_html => { :rows => 10 } %>
+        </div>
+        <div class='col-md-3'>
+          <%= f.input :unique_value_prop, :placeholder=>'<thing the customer wants> in <some time frame>', :input_html => { :rows => 10 } %>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='col-md-4'>
+              <%= f.input :key_metrics, :hint => 'How will you measure success and failure?', :input_html => { :rows => 5 } %>
+        </div>
+        <div class='col-md-4'>
+              <%= f.input :cost_structure, :hint => 'Cost of development, hosting, opportunity cost...?', :input_html => { :rows => 5 } %>
+        </div>
+        <div class='col-md-4'>
+              <%= f.input :revenue_streams, :hint => 'How will we make money?', :input_html => { :rows => 5 } %>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-3'>
+          <%= f.input :early_adopters, :hint=>'What class of users will adopt this first?', :input_html => { :rows => 10 } %>
+        </div>
+        <div class='col-md-3'>
+          <%= f.input :existing_alternatives, :hint=>'How is this problem solved today?', :input_html => { :rows => 10 } %>
+        </div>
+        <div class='col-md-3'>
+          <%= f.input :unfair_advantage, :hint => 'What is our advantage over the alternatives?', :input_html => { :rows => 10 } %>
+        </div>
+        <div class='col-md-3'>
+          <%= f.input :channels, :hint => 'How do we get the solution to the customers?', :input_html => { :rows => 10 } %>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="actions">

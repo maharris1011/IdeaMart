@@ -4,13 +4,24 @@
       <h1>Manta Idea Exchange (IDX)</h1>
     </div>
   </div>
+
+  <ul class='nav nav-pills'>
+    <%= nav_link "All", ideas_path, params[:state] == nil %>
+    <%= nav_link "Submitted", ideas_path(:state => :proposed), params[:state].eql?(:proposed.to_s) %>
+    <%= nav_link "Approved", ideas_path(:state => :in_development), params[:state].eql?(:in_development.to_s) %>
+    <%= nav_link "Deferred", ideas_path(:state => :deferred), params[:state].eql?(:deferred.to_s) %>
+    <%= nav_link "Declined", ideas_path(:state => :declined), params[:state].eql?(:declined.to_s) %>
+    <%= nav_link "Delivered", ideas_path(:state => :done), params[:state].eql?(:done.to_s) %>
+  </ul>
+
   <div class='row'>
-    <% @ideas.each do |idea| %>
+    <% @ideas.order(:state).each do |idea| %>
       <div class="col-md-6">
         <div class='idea-card'>
           <div class='row'>
             <div class='col-md-9'>
-              <h3><%= link_to idea.high_level_concept, idea %> -- <%= pluralize(idea.score, 'Point')%> <span class='label label-default'><%= idea.state %></span> </h3>
+              <h3><span class='label label-default'><%= idea.state %></span> </h3>
+              <h3><%= link_to idea.high_level_concept, idea %> -- <%= pluralize(idea.score, 'Point')%> </h3>
               <h4>By: <%= mail_to idea.user.email, idea.user.name %></h4>
               <p><%= idea.solution %></p>
             </div>
