@@ -21,7 +21,7 @@ new_users = {
 }
 
 new_users.each do |key, value|
-	u = LaunchpadSponsor.new(name:key, area:value)
+	u = User.new(name:key, area:value)
 	if u.save
 		puts "user #{key} created"
 	else
