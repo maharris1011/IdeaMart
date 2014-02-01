@@ -5,8 +5,8 @@ class Idea < ActiveRecord::Base
 
 	has_many :votes
 
-	scope :most_popular, -> {select("ideas.*, count(votes.id) AS votes_count").
-    						joins(:votes).group("ideas.id").order("votes_count DESC")}
+	scope :most_popular, -> {select("ideas.*, sum(votes.score) AS score").
+    						joins(:votes).group("ideas.id").order("score DESC")}
 
 	scope :newest, -> {order('created_at DESC')}
 
@@ -40,6 +40,9 @@ class Idea < ActiveRecord::Base
 		state :proposed do
 			validates_presence_of :problem, :solution, :customer_segments, :high_level_concept
 		end
+	end
 
+	def score
+		self.votes.sum('score')
 	end
 end

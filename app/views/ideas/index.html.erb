@@ -6,22 +6,22 @@
   </div>
   <div class='row'>
     <% @ideas.each do |idea| %>
-      <div class="col-md-12">
+      <div class="col-md-6">
         <div class='idea-card'>
           <div class='row'>
             <div class='col-md-9'>
-              <h3><%= link_to idea.high_level_concept, idea %> -- <%= pluralize(idea.votes.count, 'supporter')%></h3>
-              <h5>By: <%= mail_to idea.user.email, idea.user.name %></h5>
+              <h3><%= link_to idea.high_level_concept, idea %> -- <%= pluralize(idea.score, 'Point')%> <span class='label label-default'><%= idea.state %></span> </h3>
+              <h4>By: <%= mail_to idea.user.email, idea.user.name %></h4>
               <p><%= idea.solution %></p>
             </div>
             <div class='actions col-md-3'>
               &nbsp;
               <% if idea.user == current_user then %>
                 <% # you can only edit/delete your own ideas %>
-                <%= link_to edit_idea_path(idea), :class=>'btn btn-success' do %>
+                <%= link_to edit_idea_path(idea), :class=>'btn btn-success pull-right' do %>
                   <i class='glyphicon glyphicon-edit'></i>
                 <% end %>
-                <%= link_to idea, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger' do %>
+                <%= link_to idea, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger pull-right' do %>
                   <i class='glyphicon glyphicon-remove'></i>
                 <% end %>
               <% end %>

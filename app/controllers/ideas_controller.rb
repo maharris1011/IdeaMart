@@ -33,6 +33,7 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
+    @idea.votes.build(:user=>current_user, :score => 1)
 
     respond_to do |format|
       if @idea.save

@@ -4,19 +4,24 @@
 				<h2><%= @idea.high_level_concept %>  <span class='label label-default'><%=@idea.state.humanize%></span></h2>
 				<p>Created by: <small><%= mail_to @idea.user.email, @idea.user.name %></small></p>
 				<p>Sponsored by: <small><%= @idea.launchpad_sponsor.name %></small></p>
-				<h3>Support: <%= pluralize(@idea.votes.count, 'Manta associate')%></h3>
+				<h3>Support: <%= pluralize(@idea.score, 'Point')%></h3>
 				<%= render :partial => 'state_links', :locals => {:idea => @idea} %>
 			</div>
 
 			<div class='col-md-4'>
-				<% if @idea.votes.where(:user=>current_user).first != nil then %>
-					<h4>You support this idea.</h4>
-					<%= link_to 'Remove Vote?', [@idea, @vote], :method => :delete, :class => 'btn btn-danger' %>
+				<% if v = @idea.votes.where(:user=>current_user).first  %>
+					<h4>You already voted (<%= '%+d' % v.score %>)</h4>
+					<%= link_to 'Remove Vote?', [@idea, @vote], :method => :delete, :class => 'btn btn-danger btn-lg' %>
 				<% else %>
 					<h4>Show Your Support.</h4>
-					<%= simple_form_for([@idea, @vote], html: {class: 'form-horizontal' }) do |f| %>
-						<%= f.submit 'Vote For It!', :class => 'btn btn-success btn-lg' %>
-					<% end %>
+					<div class='btn btn-group btn-group-lg'>
+						<%= link_to idea_votes_path(@idea), :method => :post, :class => 'btn btn-success' do %>
+							<i class='glyphicon glyphicon-thumbs-up'></i>
+						<% end %>
+						<%= link_to idea_votes_path(@idea, :score=>-1), :method => :post, :class => 'btn btn-success' do %>
+							<i class='glyphicon glyphicon-thumbs-down'></i>
+						<% end %>
+					</div>
 				<% end %>
 			</div>
 		</div>
