@@ -6,22 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 new_users = {
-	'Anna Harper Hess' => 'Members',
-	'Dmitri Kazanski' => 'Ads',
-	'Eren Alasyali' => 'Ads',
-	'Heather Harmon' => 'Marketing',
-	'Jason Koeppe' => 'Marketing',
-	'Mark Brower' => 'Engineering',
-	'Mark Szolosi' => 'Traffic/Search',
-	'Matt Van Ormer' => 'Premium',
-	'Oksana Shmaliy' => 'Engineering',
-	'Russell Garrison' => 'Engineering',
-	'Ty Henkaline' => 'Analytics',
-	'Maureen Pechinak' => 'Manta.com'
+	'Anna Harper Hess' => 'ahess',
+	'Dmitri Kazanski' => 'dkazanski',
+	'Eren Alasyali' => 'ealasyali',
+	'Heather Harmon' => 'hharmon',
+	'Jason Koeppe' => 'jkoeppe',
+	'Mark Brower' => 'mbrower',
+	'Mark Szolosi' => 'mszolosi',
+	'Matt Van Ormer' => 'mvanormer',
+	'Oksana Shmaliy' => 'oshmaliy',
+	'Russell Garrison' => 'rgarrison',
+	'Ty Henkaline' => 'thenkaline',
+	'Maureen Pechinak' => 'mpechinak'
 }
 
 new_users.each do |key, value|
-	u = User.new(name:key, area:value)
+	u = User.new(name:key, email:"#{value}@manta.com", launchpad:true)
 	if u.save
 		puts "user #{key} created"
 	else
