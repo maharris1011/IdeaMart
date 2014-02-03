@@ -12,7 +12,7 @@ class VotesController < ApplicationController
 	# POST /ideas
 	# POST /ideas.json
 	def create
-		@vote = Vote.new(:idea => @idea, :user => current_user, :score => params[:score])
+		@vote = Vote.new(:idea => @idea, :user => current_user, :score => params[:score] || 1)
 
 		respond_to do |format|
 		  if @vote.save

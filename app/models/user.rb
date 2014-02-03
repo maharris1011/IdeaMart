@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :ideas
   has_many :votes
+
+  default_scope { order('name') }
+  scope :sponsors, -> { where(launchpad: true) }
 end

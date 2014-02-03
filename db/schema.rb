@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127033909) do
+ActiveRecord::Schema.define(version: 20140201020912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,10 @@ ActiveRecord::Schema.define(version: 20140127033909) do
     t.text     "revenue_streams"
     t.text     "customer_segments"
     t.string   "state"
+    t.integer  "launchpad_sponsor_id"
   end
+
+  add_index "ideas", ["launchpad_sponsor_id"], name: "index_ideas_on_launchpad_sponsor_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -49,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140127033909) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.boolean  "launchpad"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -59,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140127033909) do
     t.integer  "idea_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "score"
   end
 
   add_index "votes", ["idea_id"], name: "index_votes_on_idea_id", using: :btree

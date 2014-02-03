@@ -4,6 +4,9 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
+# for testing
+
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -42,8 +45,9 @@ end
 # simple-form makes things easy!
 gem 'simple_form'
 
-group :test do
+group :test, :development do
   gem 'cucumber-rails', :require => false
+  gem 'rspec-rails', '~>3.0.0.beta'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
 end

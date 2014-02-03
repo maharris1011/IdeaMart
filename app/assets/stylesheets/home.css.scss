@@ -26,16 +26,22 @@ section.idealist {
 	padding:1em;
 }
 
+
 .idea-card {
 	background-color:$blueManta;
 	box-shadow: 10px 10px 5px #888888;
 	border-radius: 5px;
 	padding:.5em;
+	min-height:152px;
 	color:white;
 	a {
 		color:white;
 	}
 	margin:1em 0 1em 0;
+}
+
+section.text-background {
+	background-color:$grayManta;
 }
 
 section.light-background {

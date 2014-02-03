@@ -7,6 +7,8 @@ OurMantaIdeas::Application.routes.draw do
 
   resources :votes
   
+  get "home/works"
+  get "home/about"
   get "home/index"
 
 # route the root of the site to the list of all meetings

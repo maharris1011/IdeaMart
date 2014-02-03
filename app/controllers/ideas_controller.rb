@@ -4,7 +4,11 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    if params[:state]
+      @ideas = Idea.where(:state => params[:state].to_s)
+    else
+      @ideas = Idea.all
+    end
   end
 
   # GET /ideas/1
@@ -33,6 +37,7 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
+    @idea.votes.build(:user=>current_user, :score => 1)
 
     respond_to do |format|
       if @idea.save
@@ -49,6 +54,12 @@ class IdeasController < ApplicationController
   # PATCH/PUT /ideas/1.json
   def update
     respond_to do |format|
+
+      if params[:event]
+        @idea.state_event = params[:event].parameterize.underscore.to_sym
+        #@idea.fire_state_event(params[:event].parameterize.underscore.to_sym)
+      end
+
       if @idea.update(idea_params)
         format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }
         format.json { head :no_content }
@@ -79,6 +90,6 @@ class IdeasController < ApplicationController
     def idea_params
       params.require(:idea).permit(:id, :title, :user_id, :solution, :problem, :high_level_concept, :unique_value_prop, :unfair_advantage,
                                     :early_adopters, :existing_alternatives, :key_metrics, :channels, :cost_structure, :revenue_streams,
-                                    :customer_segments, :state)
+                                    :customer_segments, :state, :launchpad_sponsor_id)
     end
 end
