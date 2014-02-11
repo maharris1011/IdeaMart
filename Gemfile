@@ -45,6 +45,9 @@ end
 # simple-form makes things easy!
 gem 'simple_form'
 
+# new relic for performance
+gem 'newrelic_rpm'
+
 group :test, :development do
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails', '~>3.0.0.beta'
