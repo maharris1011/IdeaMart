@@ -9,7 +9,8 @@
     <%= nav_link "All", ideas_path, params[:state] == nil %>
     <%= nav_link "New", ideas_path(:state => :spark), params[:state].eql?(:spark.to_s) %>
     <%= nav_link "For Review", ideas_path(:state => :proposed), params[:state].eql?(:proposed.to_s) %>
-    <%= nav_link "Approved", ideas_path(:state => :in_development), params[:state].eql?(:in_development.to_s) %>
+    <%= nav_link "Approved", ideas_path(:state => :approved), params[:state].eql?(:approved.to_s) %>
+    <%= nav_link "In Development", ideas_path(:state => :in_development), params[:state].eql?(:in_development.to_s) %>
     <%= nav_link "Deferred", ideas_path(:state => :deferred), params[:state].eql?(:deferred.to_s) %>
     <%= nav_link "Declined", ideas_path(:state => :declined), params[:state].eql?(:declined.to_s) %>
     <%= nav_link "Delivered", ideas_path(:state => :done), params[:state].eql?(:done.to_s) %>
