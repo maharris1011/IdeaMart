@@ -3,6 +3,7 @@ OurMantaIdeas::Application.routes.draw do
 
   resources :ideas do
   	resources :votes
+    resources :comments
   end
 
   resources :votes

@@ -1,6 +1,7 @@
 class Idea < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :launchpad_sponsor, :class_name => 'User'
+	has_many :comments
 
 	validates_presence_of :high_level_concept, :user
 

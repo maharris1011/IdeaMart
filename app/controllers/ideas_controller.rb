@@ -21,6 +21,9 @@ class IdeasController < ApplicationController
       @vote.user = current_user
       @vote.idea = @idea
     end
+
+    @comments = @idea.comments.order(created_date: :desc)
+    @comment = Comment.new(:user => current_user)
   end
 
   # GET /ideas/new
