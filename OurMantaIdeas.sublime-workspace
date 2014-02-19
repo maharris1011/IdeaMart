@@ -24,10 +24,10 @@
 			}
 		},
 		{
-			"file": "app/models/vote.rb",
+			"file": "db/seeds.rb",
 			"settings":
 			{
-				"buffer_size": 74,
+				"buffer_size": 1006,
 				"line_ending": "Unix"
 			}
 		},
@@ -184,7 +184,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -213,16 +213,16 @@
 						"translation.y": 24.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/models/vote.rb",
+					"file": "db/seeds.rb",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 74,
+						"buffer_size": 1006,
 						"regions":
 						{
 						},
@@ -235,13 +235,14 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
