@@ -64,7 +64,7 @@ OurMantaIdeas::Application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => 'quiet-brook-1905.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => ENV['APP_HOST_NAME'] }
 
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
