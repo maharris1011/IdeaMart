@@ -45,7 +45,7 @@ class Idea < ActiveRecord::Base
 		end
 
 		state :in_development do 
-			validates_presence_of :unique_value_prop, :key_metrics
+			validates_presence_of :unique_value_prop, :key_metrics, :pivotal_url
 		end
 
 	end

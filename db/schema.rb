@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217222936) do
+ActiveRecord::Schema.define(version: 20140410030502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140217222936) do
     t.text     "customer_segments"
     t.string   "state"
     t.integer  "launchpad_sponsor_id"
+    t.string   "pivotal_url"
   end
 
   add_index "ideas", ["launchpad_sponsor_id"], name: "index_ideas_on_launchpad_sponsor_id", using: :btree

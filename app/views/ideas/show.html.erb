@@ -1,10 +1,11 @@
 <div class='container'>
 	<div class='row'>
 		<div class='col-md-8'>
-			<h2><%= @idea.high_level_concept %>  <span class='label label-default'><%=@idea.state.humanize%></span></h2>
+			<h1><span class='label label-default'><%=@idea.state.humanize%></span></h1>
+			<h2><%= @idea.high_level_concept %></h2>
 			<h3>Solution for: <%= @idea.customer_segments %></h3>
 			<p>Created by: <small><%= mail_to @idea.user.email, @idea.user.name %></small></p>
-			<h3>Support: <%= pluralize(@idea.score, 'Point')%></h3>
+			<h4>Story: <%= link_to @idea.pivotal_url, @idea.pivotal_url, :target => '_blank' %></h4>
 			<div class='row'>
 				<%= render :partial => 'state_links', :locals => {:idea => @idea} %>
 			</div>
@@ -12,6 +13,7 @@
 
 		<div class='col-md-4'>
 			<% if @vote.score != nil  %>
+			<h3>Votes So Far: <%= pluralize(@idea.score, 'Point')%></h3>
 			<h4>You already voted (<%= '%+d' % @vote.score %>)</h4>
 			<%= link_to 'Remove Vote?', [@idea, @vote], :method => :delete, :class => 'btn btn-danger btn-lg' %>
 			<% else %>
