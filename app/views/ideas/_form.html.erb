@@ -9,58 +9,34 @@
 
   <div class='inputs'>
     <div class='row'>
-      <div class='col-md-12'>
-        <h4><%= f.input :high_level_concept, :placeholder=>'e.g. YouTube for Books' %></h4>
-        <div class='row'>
-          <div class='col-md-6'>
+      <div class='col-md-6'>
+        <%= f.input :high_level_concept, :placeholder=>'e.g. YouTube for Books' %>  
+      </div>
+      <div class='col-md-3 col-md-offset-3'>
+        <%= f.input :customer_segments, :label=>'For Customers...', :hint => 'Who has this problem?', :collection => %w(SMBs Consumers Prospectors Internal) %>
+      </div>
+          <div class='col-md-3'>
             <%= f.association :user, :priority => @idea.user , :label_method => :name, :label => "Created By" %>
           </div>
-          <div class='col-md-6'>
-            <%= f.association :launchpad_sponsor, collection:User.where(:launchpad => true), :label_method => :name, :value_method => :id, :label => "Sponsored By", :hint => 'Who is on board ready to pitch this with you? Sanity check your idea with at least 1 member of Launchpad before you submit.' %>
-          </div>
-        </div>
       </div>
     </div>
 
     <div class='idea-attributes'>
       <div class='row'>
-        <div class='col-md-3'>
+        <div class='col-md-12'>
           <%= f.input :problem, :hint => 'What problem are you trying to solve?', :input_html => { :rows => 10 } %>
         </div>
-        <div class='col-md-3'> 
-          <%= f.input :customer_segments, :hint => 'For whom are you solving it?', :input_html => { :rows => 10 } %>
-        </div>
-        <div class='col-md-3'>
+        <div class='col-md-12'>
           <%= f.input :solution, :hint => 'What is the proposed solution?', :input_html => { :rows => 10 } %>
-        </div>
-        <div class='col-md-3'>
-          <%= f.input :unique_value_prop, :placeholder=>'<thing the customer wants> in <some time frame>', :input_html => { :rows => 10 } %>
         </div>
       </div>
 
       <div class='row'>
         <div class='col-md-4'>
+          <%= f.input :unique_value_prop, :placeholder=>'<thing the customer wants> in <some time frame>', :input_html => { :rows => 5 } %>
+        </div>
+        <div class='col-md-4 col-md-offset-4'>
               <%= f.input :key_metrics, :hint => 'How will you measure success and failure?', :input_html => { :rows => 5 } %>
-        </div>
-        <div class='col-md-4'>
-              <%= f.input :cost_structure, :hint => 'Cost of development, hosting, opportunity cost...?', :input_html => { :rows => 5 } %>
-        </div>
-        <div class='col-md-4'>
-              <%= f.input :revenue_streams, :hint => 'How will we make money?', :input_html => { :rows => 5 } %>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-md-3'>
-          <%= f.input :early_adopters, :hint=>'What class of users will adopt this first?', :input_html => { :rows => 10 } %>
-        </div>
-        <div class='col-md-3'>
-          <%= f.input :existing_alternatives, :hint=>'How is this problem solved today?', :input_html => { :rows => 10 } %>
-        </div>
-        <div class='col-md-3'>
-          <%= f.input :unfair_advantage, :hint => 'What is our advantage over the alternatives?', :input_html => { :rows => 10 } %>
-        </div>
-        <div class='col-md-3'>
-          <%= f.input :channels, :hint => 'How do we get the solution to the customers?', :input_html => { :rows => 10 } %>
         </div>
       </div>
     </div>
