@@ -1,6 +1,7 @@
 class Idea < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :launchpad_sponsor, :class_name => 'User'
+	has_many :comments
 
 	validates_presence_of :high_level_concept, :user
 
@@ -39,16 +40,12 @@ class Idea < ActiveRecord::Base
 		end
 
 		state :proposed do
-			validates_presence_of :problem, :solution, :customer_segments, :high_level_concept, :launchpad_sponsor, :unique_value_prop
+			validates_presence_of :problem, :solution, :customer_segments, :high_level_concept 
 			#validates :score, :numericality => {:greater_than => 5, :message => '-- Ideas must have more than 5 votes to be considered'}
 		end
 
 		state :in_development do 
-			validates_presence_of :unique_value_prop, :key_metrics, :cost_structure, :revenue_streams
-		end
-
-		state :done do
-			validates_presence_of :early_adopters, :channels
+			validates_presence_of :unique_value_prop, :key_metrics, :pivotal_url
 		end
 
 	end

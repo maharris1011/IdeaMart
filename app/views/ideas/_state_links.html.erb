@@ -1,6 +1,5 @@
-<% if current_user.launchpad %>
-<div class='row'>
-	<div class='col-md-12'>
+<% if current_user.launchpad || (@idea.user == current_user && @idea.state == :spark )%>
+<div class='col-md-12'>
 	<div class='btn-group btn-group-lg'>
 		<% idea.state_events.each do |e| %>
 		<% # had to do this hack, idea:{solution:idea.solution} to get past the 'strong parameters' bullstuff %>
@@ -8,7 +7,6 @@
 				<%= e.to_s.capitalize %>
 			<% end %>
 		<% end %>
-	</div>
 	</div>
 </div>
 <% end %>

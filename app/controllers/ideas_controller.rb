@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
   # GET /ideas
   # GET /ideas.json
   def index
@@ -21,6 +22,9 @@ class IdeasController < ApplicationController
       @vote.user = current_user
       @vote.idea = @idea
     end
+
+    @comments = @idea.comments.order(created_date: :desc)
+    @comment = Comment.new(:user => current_user)
   end
 
   # GET /ideas/new
@@ -90,6 +94,6 @@ class IdeasController < ApplicationController
     def idea_params
       params.require(:idea).permit(:id, :title, :user_id, :solution, :problem, :high_level_concept, :unique_value_prop, :unfair_advantage,
                                     :early_adopters, :existing_alternatives, :key_metrics, :channels, :cost_structure, :revenue_streams,
-                                    :customer_segments, :state, :launchpad_sponsor_id)
+                                    :customer_segments, :state, :launchpad_sponsor_id, :pivotal_url)
     end
 end
