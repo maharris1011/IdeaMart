@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.4'
+ruby '2.2.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2'
@@ -32,7 +32,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # we use state machine for the status of each idea
-gem 'state_machine'
+gem 'state_machines'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
