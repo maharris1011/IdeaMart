@@ -7,14 +7,14 @@ class Idea < ActiveRecord::Base
 
 	has_many :votes
 
-	scope :most_popular, -> {select("ideas.*, sum(votes.score) AS score").
-    						joins(:votes).group("ideas.id").order("score DESC")}
+	scope :most_popular, -> {select("ideas.*, sum(votes.score) AS score")
+    .joins(:votes).group("ideas.id").order("score DESC")}
 
 	scope :newest, -> {order('created_at DESC')}
 
 	state_machine :initial => :spark do 
-		event :submit do
-			transition :spark => :proposed
+    event :submit do
+      transition :spark => :proposed
 		end
 		event :approve do
 			transition :proposed => :approved
