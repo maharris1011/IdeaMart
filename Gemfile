@@ -51,7 +51,7 @@ gem 'newrelic_rpm'
 
 group :test, :development do
   gem 'cucumber-rails', :require => false
-  gem 'rspec-rails', '~>3.0.0.beta'
+  gem 'rspec-rails', '~>3.4'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
 end
