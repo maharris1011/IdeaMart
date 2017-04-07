@@ -20,20 +20,26 @@ section.app-content {
 	min-height:400px;
 }
 
-
 section.notifications {
 	margin-top:95px;
-	background-color:$darkBlue;
+	background-color:white;
 }
 
 .dark-blue-background {
 	background-color:$darkBlue;
+}
+
+.banner-text {
 	padding-top:1.5em;
 	padding-bottom:1em;
 }
 
 .help-inline {
 	color:red;
+}
+
+.btn-sign-up {
+	color:white;
 }
 
 
