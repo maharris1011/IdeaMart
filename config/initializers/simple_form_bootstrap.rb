@@ -11,7 +11,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :prepend, tag: 'div', class: "form-group control-group", error_class: 'error' do |b|
+  config.wrappers :prepend, tag: 'div', class: 'form-group control-group', error_class: 'error' do |b|
     b.use :html5
     b.use :placeholder
     b.use :label
@@ -24,7 +24,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :append, tag: 'div', class: "form-group control-group", error_class: 'error' do |b|
+  config.wrappers :append, tag: 'div', class: 'form-group control-group', error_class: 'error' do |b|
     b.use :html5
     b.use :placeholder
     b.use :label
@@ -37,8 +37,8 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :checkbox, tag: :div, class: "checkbox", error_class: "has-error" do |b|
-  # Form extensions
+  config.wrappers :checkbox, tag: :div, class: 'checkbox', error_class: 'has-error' do |b|
+    # Form extensions
     b.use :html5
 
     # Form components
@@ -47,7 +47,7 @@ SimpleForm.setup do |config|
       ba.use :label_text
     end
 
-    b.use :hint,  wrap_with: { tag: :p, class: "help-block" }
+    b.use :hint, wrap_with: { tag: :p, class: 'help-block' }
     b.use :error
   end
 

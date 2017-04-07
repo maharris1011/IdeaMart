@@ -1,7 +1,7 @@
 # http://stackoverflow.com/questions/14972253/simpleform-default-input-class
 # https://github.com/plataformatec/simple_form/issues/316
- 
-inputs = %w[
+
+inputs = %w(
   CollectionSelectInput
   DateTimeInput
   FileInput
@@ -11,23 +11,22 @@ inputs = %w[
   RangeInput
   StringInput
   TextInput
-]
- 
+)
+
 inputs.each do |input_type|
   superclass = "SimpleForm::Inputs::#{input_type}".constantize
- 
+
   new_class = Class.new(superclass) do
     def input_html_classes
       super.push('form-control')
     end
   end
- 
+
   Object.const_set(input_type, new_class)
 end
 
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
-
   config.wrappers :bootstrap, tag: 'div', class: 'form-group control-group', error_class: 'error' do |b|
     b.use :html5
     b.use :placeholder
@@ -39,7 +38,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :prepend, tag: 'div', class: "form-group control-group", error_class: 'error' do |b|
+  config.wrappers :prepend, tag: 'div', class: 'form-group control-group', error_class: 'error' do |b|
     b.use :html5
     b.use :placeholder
     b.use :label
@@ -52,7 +51,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :append, tag: 'div', class: "form-group control-group", error_class: 'error' do |b|
+  config.wrappers :append, tag: 'div', class: 'form-group control-group', error_class: 'error' do |b|
     b.use :html5
     b.use :placeholder
     b.use :label
@@ -70,5 +69,4 @@ SimpleForm.setup do |config|
   # to learn about the different styles for forms and inputs,
   # buttons and other elements.
   config.default_wrapper = :bootstrap
-
 end

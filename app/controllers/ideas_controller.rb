@@ -5,26 +5,26 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    if params[:state]
-      @ideas = Idea.where(:state => params[:state].to_s)
-    else
-      @ideas = Idea.all
-    end
+    @ideas = if params[:state]
+               Idea.where(state: params[:state].to_s)
+             else
+               Idea.all
+             end
   end
 
   # GET /ideas/1
   # GET /ideas/1.json
   def show
-    @vote = @idea.votes.where(:user => current_user).first
+    @vote = @idea.votes.where(user: current_user).first
 
-    if @vote == nil then
+    if @vote.nil?
       @vote = Vote.new
       @vote.user = current_user
       @vote.idea = @idea
     end
 
     @comments = @idea.comments.order(created_date: :desc)
-    @comment = Comment.new(:user => current_user)
+    @comment = Comment.new(user: current_user)
   end
 
   # GET /ideas/new
@@ -34,14 +34,13 @@ class IdeasController < ApplicationController
   end
 
   # GET /ideas/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /ideas
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
-    @idea.votes.build(:user=>current_user, :score => 1)
+    @idea.votes.build(user: current_user, score: 1)
 
     respond_to do |format|
       if @idea.save
@@ -58,10 +57,9 @@ class IdeasController < ApplicationController
   # PATCH/PUT /ideas/1.json
   def update
     respond_to do |format|
-
       if params[:event]
         @idea.state_event = params[:event].parameterize.underscore.to_sym
-        #@idea.fire_state_event(params[:event].parameterize.underscore.to_sym)
+        # @idea.fire_state_event(params[:event].parameterize.underscore.to_sym)
       end
 
       if @idea.update(idea_params)
@@ -85,15 +83,16 @@ class IdeasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_idea
-      @idea = Idea.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def idea_params
-      params.require(:idea).permit(:id, :title, :user_id, :solution, :problem, :high_level_concept, :unique_value_prop, :unfair_advantage,
-                                    :early_adopters, :existing_alternatives, :key_metrics, :channels, :cost_structure, :revenue_streams,
-                                    :customer_segments, :state, :launchpad_sponsor_id, :pivotal_url)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_idea
+    @idea = Idea.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def idea_params
+    params.require(:idea).permit(:id, :title, :user_id, :solution, :problem, :high_level_concept, :unique_value_prop, :unfair_advantage,
+                                 :early_adopters, :existing_alternatives, :key_metrics, :channels, :cost_structure, :revenue_streams,
+                                 :customer_segments, :state, :launchpad_sponsor_id, :pivotal_url)
+  end
 end

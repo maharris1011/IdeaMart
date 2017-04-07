@@ -6,7 +6,6 @@ gem 'rails', '~> 4.2'
 
 # for testing
 
-
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -50,7 +49,7 @@ gem 'simple_form'
 gem 'newrelic_rpm'
 
 group :test, :development do
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'rspec-rails', '~>3.4'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
@@ -58,6 +57,7 @@ end
 
 group :development, :test do
   gem 'puma'
+  gem 'rubocop'
 end
 
 # Use ActiveModel has_secure_password
@@ -65,16 +65,15 @@ end
 
 # Use unicorn as the app server
 group :production do
-	gem 'puma'
-	gem 'rails_12factor'
+  gem 'puma'
+  gem 'rails_12factor'
 end
-
 
 # Use Capistrano for deployment
 group :development do
-	gem 'capistrano'
-	gem 'capistrano-ext'
-	gem 'capistrano-rvm'
+  gem 'capistrano'
+  gem 'capistrano-ext'
+  gem 'capistrano-rvm'
 end
 
 # Use debugger

@@ -4,9 +4,9 @@
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-#role :app, %w{mharris@launchpad.aws.ecnext.net}
-#role :web, %w{mharris@launchpad.aws.ecnext.net}
-#role :db,  %w{mharris@launchpad.aws.ecnext.net}
+# role :app, %w{mharris@launchpad.aws.ecnext.net}
+# role :web, %w{mharris@launchpad.aws.ecnext.net}
+# role :db,  %w{mharris@launchpad.aws.ecnext.net}
 
 # Extended Server Syntax
 # ======================
@@ -14,8 +14,8 @@
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server 'launchpad.aws.ecnext.net', user: 'mharris', roles: %w{web app db}, primary: true 
-set :deploy_to, "~/our_manta_ideas"
+server 'launchpad.aws.ecnext.net', user: 'mharris', roles: %w(web app db), primary: true
+set :deploy_to, '~/our_manta_ideas'
 
 # for RVM
 set :rvm_type, :user
