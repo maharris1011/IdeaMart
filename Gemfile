@@ -55,8 +55,9 @@ group :test, :development do
   gem 'database_cleaner'
 end
 
+gem 'puma'
+
 group :development, :test do
-  gem 'puma'
   gem 'rubocop'
 end
 
@@ -65,15 +66,7 @@ end
 
 # Use unicorn as the app server
 group :production do
-  gem 'puma'
   gem 'rails_12factor'
-end
-
-# Use Capistrano for deployment
-group :development do
-  gem 'capistrano'
-  gem 'capistrano-ext'
-  gem 'capistrano-rvm'
 end
 
 # Use debugger
