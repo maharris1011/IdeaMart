@@ -57,7 +57,7 @@ group :test, :development do
 end
 
 group :development, :test do
-  gem 'thin'
+  gem 'puma'
 end
 
 # Use ActiveModel has_secure_password
