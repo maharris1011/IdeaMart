@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-OurMantaIdeas::Application.config.secret_key_base = '7fd241013d8cf0381c63fcfd3a94b4556eafcaec858a0e97e325bb0340f5bd85420dc7b2786791ab63b170c6da16241f3990708dfaefe89e87271eb50b8a3083'
+IdeaExchange::Application.config.secret_key_base = '7fd241013d8cf0381c63fcfd3a94b4556eafcaec858a0e97e325bb0340f5bd85420dc7b2786791ab63b170c6da16241f3990708dfaefe89e87271eb50b8a3083'
