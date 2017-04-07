@@ -53,12 +53,13 @@ group :test, :development do
   gem 'rspec-rails', '~>3.4'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'rubocop'
+  gem 'pry-byebug'
 end
 
 gem 'puma'
 
 group :development, :test do
-  gem 'rubocop'
 end
 
 # Use ActiveModel has_secure_password

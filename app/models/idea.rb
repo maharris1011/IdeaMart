@@ -42,13 +42,25 @@ class Idea < ActiveRecord::Base
     end
 
     state :proposed do
-      validates_presence_of :problem, :solution, :customer_segments, :high_level_concept
-      # validates :score, :numericality => {:greater_than => 5, :message => '-- Ideas must have more than 5 votes to be considered'}
+      validates_presence_of :problem,
+                            :solution,
+                            :customer_segments,
+                            :high_level_concept
+      # validates :score, numericality: {
+      #   greater_than: 5,
+      #   message: '-- Ideas must have more than 5 votes to be considered'
+      # }
     end
 
     state :in_development do
       validates_presence_of :unique_value_prop, :key_metrics, :pivotal_url
     end
+  end
+
+  def do_event(event)
+    return unless event
+    state_events << event.parameterize.underscore.to_sym
+    fire_state_event(event.parameterize.underscore.to_sym)
   end
 
   def score
