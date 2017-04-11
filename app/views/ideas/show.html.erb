@@ -53,7 +53,7 @@
 	<div class='row'>
 		<% if @idea.user == current_user || current_user.launchpad then %>
 		<div class='col-md-12'>
-			<%= link_to 'Edit', edit_idea_path(@idea), :class=>'btn btn-success' %>  <%= link_to 'Cancel', ideas_path, :class=>'btn btn-info' %>
+			<%= link_to 'Edit', edit_idea_path(@idea), :class=>'btn btn-success' %>  <%= link_to 'Back to List', ideas_path, :class=>'btn btn-info' %>
 		</div>
 		<% end %>
 	</div>
