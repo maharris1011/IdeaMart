@@ -14,8 +14,8 @@ new_users = {
 
 new_users.each do |key, value|
   next unless User.where(email: "#{value}@covermymeds.com").empty?
-  User.create!(name: key,
-              email: "#{value}@covermymeds.com",
-              password: 'password',
-              launchpad: true)
+  User.create!(name:      key,
+               email:     "#{value}@covermymeds.com",
+               password:  'password',
+               launchpad: true)
 end
