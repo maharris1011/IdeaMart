@@ -23,7 +23,7 @@ class IdeasController < ApplicationController
       @vote.idea = @idea
     end
 
-    @comments = @idea.comments.order(created_date: :desc)
+    @comments = @idea.comments.order(created_at: :desc)
     @comment = Comment.new(user: current_user)
   end
 
@@ -90,6 +90,6 @@ class IdeasController < ApplicationController
   def idea_params
     params.require(:idea).permit(:id, :title, :user_id, :solution, :problem, :high_level_concept, :unique_value_prop, :unfair_advantage,
                                  :early_adopters, :existing_alternatives, :key_metrics, :channels, :cost_structure, :revenue_streams,
-                                 :customer_segments, :state, :launchpad_sponsor_id, :pivotal_url)
+                                 :customer_segments, :state, :launchpad_sponsor_id, :story_url)
   end
 end
