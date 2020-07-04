@@ -21,23 +21,23 @@ worker_processes Integer(ENV["WEB_CONCURRENCY"] || 2)
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-working_directory "/home/mharris/OurMantaIdeas/current" # available in 0.94.0+
+working_directory "/home/mharris/Ideamart/current" # available in 0.94.0+
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "/tmp/.unicorn.ourmantaideas.sock", :backlog => 64
+listen "/tmp/.unicorn.Ideamart.sock", :backlog => 64
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
 
 # feel free to point this anywhere accessible on the filesystem
-pid "/home/mharris/OurMantaIdeas/current/tmp/pids/unicorn.pid"
+pid "/home/mharris/Ideamart/current/tmp/pids/unicorn.pid"
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path "/home/mharris/OurMantaIdeas/current/log/unicorn.stderr.log"
-stdout_path "/home/mharris/OurMantaIdeas/current/log/unicorn.stdout.log"
+stderr_path "/home/mharris/Ideamart/current/log/unicorn.stderr.log"
+stdout_path "/home/mharris/Ideamart/current/log/unicorn.stdout.log"
 
 # combine Ruby 2.0.0dev or REE with "preload_app true" for memory savings
 # http://rubyenterpriseedition.com/faq.html#adapt_apps_for_cow

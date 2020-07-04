@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-OurMantaIdeas::Application.load_tasks
+Ideamart::Application.load_tasks

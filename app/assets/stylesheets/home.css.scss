@@ -10,7 +10,7 @@ body {
 }
 
 .jumbotron {
-	background-color:$yellowManta;
+	background-color:$yellowIdea;
 	color:lighten($darkBlue, 10%);
 	padding-top:3em;
 	padding-bottom:3em;
@@ -22,13 +22,13 @@ body {
 }
 
 section.idealist {
-	background-color:$grayManta;
+	background-color:$grayIdea;
 	padding:1em;
 }
 
 
 .idea-card {
-	background-color:$blueManta;
+	background-color:$blueIdea;
 	box-shadow: 10px 10px 5px #888888;
 	border-radius: 5px;
 	padding:.5em;
@@ -41,7 +41,7 @@ section.idealist {
 }
 
 section.text-background {
-	background-color:$grayManta;
+	background-color:$grayIdea;
 }
 
 section.light-background {

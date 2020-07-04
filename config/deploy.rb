@@ -2,8 +2,8 @@
 lock '3.1.0'
 require "capistrano/ext/multistage"
 
-set :application, 'OurMantaIdeas'
-set :repo_url, 'git@github.com:mantacode/OurMantaIdeas.git'
+set :application, 'Ideamart'
+set :repo_url, 'git@github.com:mantacode/Ideamart.git'
 
 set :user, 'mharris'
 
