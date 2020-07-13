@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap-manta
+ *= require bootstrap
  *= require_tree .
  */
 
@@ -20,20 +20,26 @@ section.app-content {
 	min-height:400px;
 }
 
-
 section.notifications {
 	margin-top:95px;
-	background-color:$darkBlue;
+	background-color:white;
 }
 
 .dark-blue-background {
 	background-color:$darkBlue;
+}
+
+.banner-text {
 	padding-top:1.5em;
 	padding-bottom:1em;
 }
 
 .help-inline {
 	color:red;
+}
+
+.btn-sign-up {
+	color:white;
 }
 
 

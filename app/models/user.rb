@@ -11,5 +11,4 @@ class User < ActiveRecord::Base
 
   default_scope { order('name') }
   scope :sponsors, -> { where(launchpad: true) }
-
 end

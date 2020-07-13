@@ -13,13 +13,13 @@
         <%= f.input :high_level_concept, :placeholder=>'e.g. YouTube for Books' %>
       </div>
       <div class='col-md-3 col-md-offset-2'>
-        <%= f.input :customer_segments, :label=>'For Customers...', :hint => 'Who has this problem?', :collection => %w(SMBs Consumers Prospectors Internal) %>
+        <%= f.input :customer_segments, :label=>'For Customers...', hint: 'Who has this problem?', collection: %w(Providers Payers Pharmacists Pharma) %>
       </div>
       <div class='col-md-3'>
         <%= f.association :user, :priority => @idea.user , :label_method => :name, :label => "Created By" %>
       </div>
       <div class='col-md-3 col-md-offset-2'>
-        <%= f.input :pivotal_url, :label => 'Pivotal Story URL' %>
+        <%= f.input :story_url, :label => 'Story URL' %>
       </div>
 
     </div>

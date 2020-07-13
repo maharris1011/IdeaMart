@@ -1,5 +1,5 @@
 class ChangeIdeaDescriptionToSolution < ActiveRecord::Migration
   def change
-  	rename_column :ideas, :description, :solution 
+    rename_column :ideas, :description, :solution
   end
 end

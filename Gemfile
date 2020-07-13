@@ -6,7 +6,6 @@ gem 'rails', '~> 6.0.2'
 
 # for testing
 
-
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -56,10 +55,13 @@ group :test, :development do
   gem 'rspec-rails'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'rubocop'
+  gem 'pry-byebug'
 end
 
+gem 'puma'
+
 group :development, :test do
-  gem 'thin'
 end
 
 # Use ActiveModel has_secure_password
@@ -67,16 +69,7 @@ end
 
 # Use unicorn as the app server
 group :production do
-	gem 'puma'
-	gem 'rails_12factor'
-end
-
-
-# Use Capistrano for deployment
-group :development do
-	gem 'capistrano'
-	gem 'capistrano-ext'
-	gem 'capistrano-rvm'
+  gem 'rails_12factor'
 end
 
 # Use debugger

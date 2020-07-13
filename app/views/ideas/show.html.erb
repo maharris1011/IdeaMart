@@ -5,8 +5,8 @@
 			<h2><%= @idea.high_level_concept %></h2>
 			<h3>Solution for: <%= @idea.customer_segments %></h3>
 			<p>Created by: <small><%= mail_to @idea.user.email, @idea.user.name %></small></p>
-			<% if !@idea.pivotal_url.nil? %>
-			<h4>Story: <%= link_to @idea.pivotal_url, @idea.pivotal_url, :target => '_blank' %></h4>
+			<% if !@idea.story_url.nil? %>
+			<h4>Story: <%= link_to @idea.story_url, @idea.story_url, :target => '_blank' %></h4>
 			<% end %>
 			<div class='row'>
 				<%= render :partial => 'state_links', :locals => {:idea => @idea} %>
@@ -53,7 +53,7 @@
 	<div class='row'>
 		<% if @idea.user == current_user || current_user.launchpad then %>
 		<div class='col-md-12'>
-			<%= link_to 'Edit', edit_idea_path(@idea), :class=>'btn btn-success' %>  <%= link_to 'Cancel', ideas_path, :class=>'btn btn-info' %>
+			<%= link_to 'Edit', edit_idea_path(@idea), :class=>'btn btn-success' %>  <%= link_to 'Back to List', ideas_path, :class=>'btn btn-info' %>
 		</div>
 		<% end %>
 	</div>
