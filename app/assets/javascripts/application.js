@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require popper
 //= require bootstrap
+//= require turbolinks
 //= require_tree .
 
 // fades in/out messages

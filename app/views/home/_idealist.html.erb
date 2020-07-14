@@ -1,22 +1,17 @@
-<section class='idealist'>
-	<div class='container'>
-		<div class="row">
-			<h3>Popular Ideas</h3>
-			<% @ideas.each do |i| %>
-			<div class="col-sm-6 col-md-4">
-				<%= render :partial => 'ideacard', locals: {:idea => i} %>
-			</div>
-			<% end %>
-		</div>
+<div class='my-3'>
+	<h3>Popular Ideas</h3>
+	<div class="card-deck">
+		<% @ideas.each do | i | %>
+			<%= render partial: 'ideacard', locals: {:idea => i} %>
+		<% end %>
+	</div>
+</div>
 
-			<div class="row">
-			<h3>Newest Ideas</h3>
-			<% @new_ideas.each do  |i| %>
-			<div class="col-md-4">
-				<%= render :partial => 'ideacard', locals: {:idea => i} %>
-			</div>
-			<% end %>
-		</div>
+<div class='my-3'>
+	<h3>Newest Ideas</h3>
+	<div class="card-deck">
+		<% @new_ideas.each do | i | %>
+			<%= render partial: 'ideacard', locals: {:idea => i} %>
+		<% end %>
 	</div>
-	</div>
-</section>
+</div>

@@ -8,11 +8,12 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require bootstrap
- *= require_tree .
  */
 
+@import 'bootstrap';
+@import 'home';
+@import 'ideas';
+@import 'vote';
 @import 'colors';
 
 section.app-content {
@@ -29,11 +30,6 @@ section.notifications {
 	background-color:$darkBlue;
 }
 
-.banner-text {
-	padding-top:1.5em;
-	padding-bottom:1em;
-}
-
 .help-inline {
 	color:red;
 }
@@ -41,5 +37,3 @@ section.notifications {
 .btn-sign-up {
 	color:white;
 }
-
-

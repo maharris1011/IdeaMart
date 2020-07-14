@@ -9,13 +9,15 @@ module ApplicationHelper
       'alert alert-danger'
     when :alert then
       'alert alert-danger'
+    else
+      'alert alert-info'
     end
   end
 
   def nav_link(link_text, link_path, expr)
-    class_name = expr ? 'active' : ''
-    content_tag(:li, class: class_name) do
-      link_to link_text, link_path
+    class_name = expr ? 'nav-link active' : 'nav-link'
+    content_tag(:li, class: 'nav-item') do
+      link_to link_text, link_path, class: class_name
     end
   end
 

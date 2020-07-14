@@ -12,36 +12,26 @@
 	<title><%= content_for?(:title) ? yield(:title) : "Ideamart" %></title>
 
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
 	<%= csrf_meta_tags %>
 </head>
 <body>
 	<section class='app-header'>
 		<%= render :partial => 'application_title_bar'%>
 	</section>
-
-	<section class='notifications'>
-		<div class='container'>
-			<div class='row'>
-				&nbsp;
-				<% flash.each do |key, value| %>
-					<div class='<%= flash_class(key) %> fade in col-md-12' id='notice'>
-						<button type='button' class='close' data-dismiss='alert'>&times;</button>
-						<%= value %>
-					</div>
-				<% end %>
-			</div>
-		</div>
-	</section>
 	
-	<section class='app-content'>
-		<%= yield %>
-	</section>
+	<div class='container'>
+		<section class='app-content'>
+			<%= render partial: 'flash_messages' %>
+			<%= yield %>
+		</section>
+	</div>
 
 	<section class='app-footer'>
 		<%= render :partial => 'application_footer' %>
 	</section>
 
-	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
 </body>
 </html>
