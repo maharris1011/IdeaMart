@@ -1,9 +1,5 @@
 <div class='container'>
-  <div class='row'>
-    <div class='col-md-12'>
-      <h1>Idea Exchange (IDX)</h1>
-    </div>
-  </div>
+  <h1>Idea Exchange (IDX)</h1>
 
   <ul class='nav nav-pills'>
     <%= nav_link "New", ideas_path(:state => :spark), params[:state].eql?(:spark.to_s) %>
@@ -16,39 +12,28 @@
     <%= nav_link "All", ideas_path, params[:state] == nil %>
   </ul>
 
-  <div class='row'>
+  <div class='card-deck'>
     <% @ideas.order(:state).each do |idea| %>
-      <div class="col-md-6">
-        <div class='idea-card'>
-          <div class='row'>
-            <div class='col-md-9'>
-              <h3><span class='label label-default'><%= idea.state %></span> </h3>
-              <h3><%= link_to idea.high_level_concept, idea %> -- <%= pluralize(idea.score, 'Point')%> </h3>
-              <h4>By: <%= mail_to idea.user.email, idea.user.name %></h4>
-              <p><%= idea.solution %></p>
-            </div>
-            <div class='actions col-md-3'>
-              &nbsp;
-              <% if idea.user == current_user || current_user.launchpad  %>
-                <% # you can only edit/delete your own ideas %>
-                <%= link_to edit_idea_path(idea), :class=>'btn btn-success pull-right' do %>
-                  <i class='glyphicon glyphicon-edit'></i>
-                <% end %>
-                <%= link_to idea, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger pull-right' do %>
-                  <i class='glyphicon glyphicon-remove'></i>
-                <% end %>
+        <div class='card idea-card'>
+          <div class='card-body'>
+            <h3 class='card-title'><%= idea.state %></h3>
+            <h3 class='card-subtitle'>
+              <%= link_to idea.high_level_concept, idea %> -- <%= pluralize(idea.score, 'Point')%>
+            </h3>
+            <h4>By: <%= mail_to idea.user.email, idea.user.name %></h4>
+            <p class='card-text'><%= idea.solution %></p>
+            <% if idea.user == current_user || current_user.launchpad  %>
+              <% # you can only edit/delete your own ideas %>
+              <%= link_to edit_idea_path(idea), :class=>'btn btn-success pull-right' do %>
+                <i class='glyphicon glyphicon-edit'></i>
               <% end %>
-            </div>
+              <%= link_to idea, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger pull-right' do %>
+                <i class='glyphicon glyphicon-remove'></i>
+              <% end %>
+            <% end %>
           </div>
         </div>
-      </div>
     <% end %>
   </div>
-  <br/>
-  <div class='col-md-12'>
-    <%= link_to 'Add Your Idea!', new_idea_path, :class => 'btn btn-lg btn-success' %>
-  </div>
-
-  <br/>
-
+  <%= link_to 'Add Your Idea!', new_idea_path, class: 'mt-3 btn btn-lg btn-success' %>
 </div>
