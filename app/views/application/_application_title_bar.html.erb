@@ -1,35 +1,38 @@
-<header class='navbar navbar-inverse' role='banner'>
+<nav class='navbar navbar-expand-lg navbar-dark bg-dark' role='banner'>
   <div class='container'>
-    <nav role='navigation'>
-        <div class='row'>
-    <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header col-md-2">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <%= link_to "IdeaMart", root_url, class:'navbar-brand' -%>
-          </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-              <li><%=link_to raw("<h3>Submit<br/><small>Your Idea</small></h3>"), new_idea_path %></li>
-              <li><%=link_to raw("<h3>List<br/><small>All Ideas</small></h3>"), ideas_path(:state => :spark) %></li>
-            </ul>
-            <ul class='nav navbar-nav navbar-right'>
-            <% if user_signed_in? %>
-              <li><%= link_to current_user.email, edit_user_registration_path %></li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class=>'btn-sign-up btn btn-primary' %></li>
-              <% else %>
-              <li><%= link_to "Sign In", new_user_session_path, :class=>'btn-sign-up btn btn-primary' %></li>
-            <% end %>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div>
-    </nav>
+    <%= link_to "IdeaMart", root_url, class:'navbar-brand' -%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class='collapse navbar-collapse'>
+      <ul class="navbar-nav mr-auto">
+        <li class='nav-item'>
+          <%=link_to new_idea_path, class:'nav-link' do %>
+            <h3>Submit<br/><small>Your Idea</small></h3>
+          <% end %>
+        </li>
+        <li class='nav-item'>
+          <%=link_to ideas_path(:state => :spark), class: 'nav-link' do %>
+            <h3>List<br/><small>All Ideas</small></h3>
+          <% end %>
+        </li>
+      </ul>
+
+      <ul class='navbar-nav ml-auto'>
+        <% if user_signed_in? %>
+          <li class='nav-item'>
+            <%= link_to current_user.email, edit_user_registration_path %>
+          </li>
+          <li class='nav-item'>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn-sign-up btn btn-primary' %>
+          </li>
+          <% else %>
+          <li class='nav-item'>
+            <%= link_to "Sign In", new_user_session_path, class: 'btn-sign-up btn btn-primary' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</header>
-
-
+</nav>

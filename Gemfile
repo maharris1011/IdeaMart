@@ -4,8 +4,6 @@ ruby '2.7.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2'
 
-# for testing
-
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -18,11 +16,11 @@ gem 'uglifier'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # for user logon/off
 gem 'devise'
+
+# bootstrap for CSS
+gem 'bootstrap', '~> 4.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -64,13 +62,6 @@ gem 'puma'
 group :development, :test do
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
 group :production do
   gem 'rails_12factor'
 end
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
