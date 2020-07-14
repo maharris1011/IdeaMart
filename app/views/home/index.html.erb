@@ -1,9 +1,9 @@
-<section class='banner-text'>
-	<div class='jumbotron jumbotron-fluid'>
-		<div class='container'>
-			<h1>All Your Ideas. All the time.</h1>
-			<h2 class='lead'>Want to learn how it works?</h2>
-			<%= link_to "Learn More", home_about_path, :class=>'btn btn-primary btn-lg'%>
+<div class='jumbotron jumbotron-fluid'>
+	<div class='container'>
+		<h1>All Your Ideas. All the time.</h1>
+		<h2 class='lead'>Want to learn how it works?</h2>
+		<%= link_to "Learn More", home_about_path, :class=>'btn btn-primary btn-lg'%>
+		<div class='mt-3'>
 			<% if user_signed_in? then %>
 				<%= render :partial => 'idealist' %>
 			<% else %> 
@@ -11,4 +11,4 @@
 			<% end %>
 		</div>
 	</div>
-</section>
+</div>
