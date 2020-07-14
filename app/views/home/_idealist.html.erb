@@ -1,15 +1,17 @@
-<section class='idealist'>
+<div class='my-3'>
 	<h3>Popular Ideas</h3>
 	<div class="card-deck">
 		<% @ideas.each do | i | %>
 			<%= render partial: 'ideacard', locals: {:idea => i} %>
 		<% end %>
 	</div>
+</div>
 
+<div class='my-3'>
 	<h3>Newest Ideas</h3>
 	<div class="card-deck">
 		<% @new_ideas.each do | i | %>
 			<%= render partial: 'ideacard', locals: {:idea => i} %>
 		<% end %>
 	</div>
-</section>
+</div>
