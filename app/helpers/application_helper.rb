@@ -9,6 +9,8 @@ module ApplicationHelper
       'alert alert-danger'
     when :alert then
       'alert alert-danger'
+    else
+      'alert alert-info'
     end
   end
 
