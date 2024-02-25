@@ -4,21 +4,21 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class='collapse navbar-collapse'>
       <ul class="navbar-nav mr-auto">
         <li class='nav-item'>
           <%=link_to new_idea_path, class:'nav-link' do %>
-            <h3>Submit<br/><small>Your Idea</small></h3>
+            <h3>Submit<br/>
+              <small>Your Idea</small></h3>
           <% end %>
         </li>
         <li class='nav-item'>
           <%=link_to ideas_path(:state => :spark), class: 'nav-link' do %>
-            <h3>List<br/><small>All Ideas</small></h3>
+            <h3>List<br/>
+              <small>All Ideas</small></h3>
           <% end %>
         </li>
       </ul>
-
       <ul class='navbar-nav ml-auto'>
         <% if user_signed_in? %>
           <li class='nav-item'>
@@ -27,9 +27,12 @@
           <li class='nav-item'>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn-sign-up btn btn-primary' %>
           </li>
-          <% else %>
+        <% else %>
           <li class='nav-item'>
-            <%= link_to "Sign In", new_user_session_path, class: 'btn-sign-up btn btn-primary' %>
+            <%= link_to "Sign In", new_user_session_path, class: 'btn-sign-in btn btn-primary' %>
+          </li>
+          <li class='nav-item'>
+            <%= link_to "Sign Up", new_user_registration_path, class: 'btn-sign-up btn btn-primary' %>
           </li>
         <% end %>
       </ul>

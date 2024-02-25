@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
-ruby '2.7.0'
+ruby '3.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2'
+
+# use psych because of issue here https://stackoverflow.com/questions/68802089/rails-couldnt-infer-whether-you-are-using-multiple-databases-from-your-database
+gem 'psych', '< 4.0.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -65,3 +68,7 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+gem "base64", "~> 0.2.0"
+
+gem "mutex_m", "~> 0.2.0"

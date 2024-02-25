@@ -1,4 +1,4 @@
-class AddLeanCanvasStuffToIdeas < ActiveRecord::Migration
+class AddLeanCanvasStuffToIdeas < ActiveRecord::Migration[4.2]
   def change
     change_table :ideas do |t|
       t.column :problem, :text
