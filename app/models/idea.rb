@@ -7,14 +7,14 @@ class Idea < ActiveRecord::Base
 
   has_many :votes
 
-  scope :most_popular, -> {
+  scope :most_popular, lambda {
                          select('ideas.*, sum(votes.score) AS score')
                            .joins(:votes).group('ideas.id').order('score DESC')
                        }
 
   scope :newest, -> { order('created_at DESC') }
 
-  state_machine initial: :spark do
+  state_machine :state, initial: :spark do
     event :submit do
       transition spark: :proposed
     end
@@ -22,15 +22,15 @@ class Idea < ActiveRecord::Base
       transition proposed: :approved
     end
     event :defer do
-      transition [:approved, :proposed] => :deferred
+      transition %i[approved proposed] => :deferred
     end
 
     event :decline do
-      transition [:approved, :deferred, :proposed] => :declined
+      transition %i[approved deferred proposed] => :declined
     end
 
     event :restart do
-      transition [:approved, :deferred, :declined, :done] => :spark
+      transition %i[approved deferred declined done] => :spark
     end
 
     event :start_work do
@@ -39,6 +39,12 @@ class Idea < ActiveRecord::Base
 
     event :deliver do
       transition in_development: :done
+    end
+
+    state :spark do
+      def name
+        'spark'
+      end
     end
 
     state :proposed do
@@ -59,6 +65,7 @@ class Idea < ActiveRecord::Base
 
   def do_event(event)
     return unless event
+
     state_events << event.parameterize.underscore.to_sym
     fire_state_event(event.parameterize.underscore.to_sym)
   end

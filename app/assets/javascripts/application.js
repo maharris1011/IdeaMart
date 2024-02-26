@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery3
 //= require jquery_ujs
 //= require popper
 //= require bootstrap
@@ -18,6 +18,8 @@
 //= require_tree .
 
 // fades in/out messages
-$('#notice').delay(500).fadeIn('normal', function() {
-	$(this).delay(1500).fadeOut();
-});
+$("#notice")
+  .delay(500)
+  .fadeIn("normal", function () {
+    $(this).delay(1500).fadeOut()
+  })

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '3.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2'
+gem 'rails', '~> 6.1.7.7'
 
 # use psych because of issue here https://stackoverflow.com/questions/68802089/rails-couldnt-infer-whether-you-are-using-multiple-databases-from-your-database
 gem 'psych', '< 4.0.0'
@@ -23,7 +23,7 @@ gem 'coffee-rails'
 gem 'devise'
 
 # bootstrap for CSS
-gem 'bootstrap', '~> 4.0'
+gem 'bootstrap', '~> 5.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -33,7 +33,7 @@ gem 'turbolinks'
 
 # we use state machine for the status of each idea
 gem 'state_machines'
-gem 'state_machines-activemodel'
+gem 'state_machines-activerecord'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 1.2'
@@ -52,12 +52,12 @@ gem 'newrelic_rpm'
 gem 'rake'
 
 group :test, :development do
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'rspec-rails'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
-  gem 'rubocop'
   gem 'pry-byebug'
+  gem 'rubocop'
 end
 
 gem 'puma'
@@ -69,6 +69,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem "base64", "~> 0.2.0"
+gem 'base64', '~> 0.2.0'
 
-gem "mutex_m", "~> 0.2.0"
+gem 'mutex_m', '~> 0.2.0'
